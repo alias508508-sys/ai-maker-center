@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-03T16:24:18.642Z",
-  "runs": 6,
+  "updatedAt": "2026-10-03T21:25:13.770Z",
+  "runs": 7,
   "seen": [
     "https://news.mit.edu/2026/instructmesh-tool-lets-users-repair-ai-3d-models-then-fabricate-them-1001",
     "https://news.mit.edu/2026/3-questions-new-resource-empower-young-entrepreneurs-1002",
@@ -29,14 +29,16 @@
     "https://news.google.com/rss/articles/CBMihAFBVV95cUxOelFMOHU2cFZscHdVSkVWLTZKOGpVUi1tS0psUXp5Z010NVRFZGU3VGdldXo0Q0Y1S0V0OE1Na0F3UlJRZzZQcExjZF9EakpRSVdGZFB1d3g5b0g5Rkx1T1k4Wng1ZkRRWENDOEJEY1VGbUNBVkllRnRFZDhhSXg1eVJoRFE?oc=5",
     "https://news.google.com/rss/articles/CBMihAFBVV95cUxQSEZNODVWUEhqUDI0U0wwOGFwS2xxWHNUQWpMNjlzZmVtOXMtUEpENl9xZ3F1NEVaR1RLOVp1UzJ6T3NHNnd0Z0VVMUc4RERrandRUUMtWnA4RkxUUHJiQ19HSHZpd3JqZHFiZ0RpX3lER1JHdmhoTnNyUUpMU0Uyb3BiOU4?oc=5",
     "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1lMGloaTFPOExuTVBjUkVvMi14cG5tSG8wazAwMnoyc2x1akJLMEU5cThCWk9uYjdVSGh1OC1TX1p2aFpRU185dm1obGNFYkJFZjdCQUxYX1M?oc=5",
-    "https://news.google.com/rss/articles/CBMi1AJBVV95cUxOQVRscDlnZ2hFaXU3Q1pIVnlOTVg1QTlvcFpMcjV6TWtXZU1rZENPcWM5RndJVGtWQTdRUG5nQmZ3QnZDYldDLWs5T0ptV0t0YW9IZEZNQjRzYmN5VFRTR2ZSRGhmWnFSa2t3TU5qeEU5LWlEZ2pJMmNZM3djdksweUJHV19mSHN5S2ZTVmhxandRYlRQUHZ2RE5yVUwzRk03Wnl1NVQ1U0QwY2JsbGZnRUpIN2p4TXo0X1ZkckliSUliUkg5TVk2QlQ3ZENJczhSRWFVZFVSaVdUWS1BYmFDSGlLelJ1ZzdSc1Q5RndQemprSW9Ddmk3WlowMmlPNlJKeEtvX1ZzRHNOUWtmXzV0Y1dvUFZGZ1lnUWxqQXhhUVl0OHhiMEdLd2tDRFF2Ym1Pd3cteDFpQ0xZeVFiWEhkNTd6eGlCZ21zSnZpclJWRlFYdUkz?oc=5"
+    "https://news.google.com/rss/articles/CBMi1AJBVV95cUxOQVRscDlnZ2hFaXU3Q1pIVnlOTVg1QTlvcFpMcjV6TWtXZU1rZENPcWM5RndJVGtWQTdRUG5nQmZ3QnZDYldDLWs5T0ptV0t0YW9IZEZNQjRzYmN5VFRTR2ZSRGhmWnFSa2t3TU5qeEU5LWlEZ2pJMmNZM3djdksweUJHV19mSHN5S2ZTVmhxandRYlRQUHZ2RE5yVUwzRk03Wnl1NVQ1U0QwY2JsbGZnRUpIN2p4TXo0X1ZkckliSUliUkg5TVk2QlQ3ZENJczhSRWFVZFVSaVdUWS1BYmFDSGlLelJ1ZzdSc1Q5RndQemprSW9Ddmk3WlowMmlPNlJKeEtvX1ZzRHNOUWtmXzV0Y1dvUFZGZ1lnUWxqQXhhUVl0OHhiMEdLd2tDRFF2Ym1Pd3cteDFpQ0xZeVFiWEhkNTd6eGlCZ21zSnZpclJWRlFYdUkz?oc=5",
+    "https://blogs.nvidia.com/blog/geforce-now-thursday-october-2026-games-list/",
+    "https://www.raspberrypi.com/news/animate-a-halloween-skeleton-raspberry-pi-book-of-making-2027/",
+    "https://www.yankodesign.com/2026/10/03/the-desk-lamp-that-actually-refuses-to-sit-on-your-desk/?utm_source=rss&utm_medium=rss&utm_campaign=the-desk-lamp-that-actually-refuses-to-sit-on-your-desk",
+    "https://news.google.com/rss/articles/CBMie0FVX3lxTE9DMjNfVnZWb3laYTVOVjJRRVZUdWZ5RDdranYxMUxreEJuUFIxd01zZlY2THFTdXZSajJLd2hCYUI4U0ZnS20yRlZqTXE2bk9ZTWl3VkIwRXZTd2FEdFY2UDdLU09KaHY2VzJteUwzT2lZbV85VkVQSTB2NA?oc=5",
+    "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1rd0tfWGNOZjJZZUVsWExfZEkwNXBaVWdxaDlKZ2MwYlFDWkMyeE1wYV8wd1B4dGpKNElCYUZqNkZWTmZnbFhKNjR2RGRQY0FBX1phdEFkOEVia0Z0M01WVTNmdGpqQQ?oc=5",
+    "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5qaFZFclEzOUZFaFpFUjdhYjVrUDFvbE9WN3hDNXFmaDlsZjI3cnRSV004NUNPSWlKenMzWUNJWF9GVHVDd0lULWJkUXJsR0hsbVVjdmFRZE1FOHVNWDFtcHFB?oc=5",
+    "https://blog.arduino.cc/2026/10/01/an-arduino-uno-q-lets-this-vintage-terminal-answer-questions-without-internet-access/"
   ],
   "sources": [
-    {
-      "name": "MIT News · AI",
-      "count": 50,
-      "status": "ok"
-    },
     {
       "name": "NVIDIA Blog",
       "count": 18,
@@ -59,7 +61,7 @@
     },
     {
       "name": "主题检索 · AI 家居设备",
-      "count": 34,
+      "count": 31,
       "status": "ok"
     },
     {
@@ -74,17 +76,17 @@
     },
     {
       "name": "主题检索 · AI 眼镜与可穿戴",
-      "count": 33,
+      "count": 34,
       "status": "ok"
     },
     {
       "name": "主题检索 · 设计工具",
-      "count": 27,
+      "count": 29,
       "status": "ok"
     },
     {
       "name": "主题检索 · 教育实践",
-      "count": 14,
+      "count": 13,
       "status": "ok"
     },
     {
@@ -94,7 +96,7 @@
     },
     {
       "name": "主题检索 · Kickstarter 设计项目报道",
-      "count": 9,
+      "count": 8,
       "status": "ok"
     },
     {
@@ -131,9 +133,80 @@
       "name": "Hugging Face",
       "count": 872,
       "status": "ok"
+    },
+    {
+      "name": "MIT News · AI",
+      "count": 50,
+      "status": "ok"
     }
   ],
   "items": [
+    {
+      "url": "https://www.yankodesign.com/2026/10/03/the-desk-lamp-that-actually-refuses-to-sit-on-your-desk/?utm_source=rss&utm_medium=rss&utm_campaign=the-desk-lamp-that-actually-refuses-to-sit-on-your-desk",
+      "title": "Amir Shaham 设计 HS-03 台灯：夹在桌沿、拒绝占用桌面",
+      "summary": "设计师 Amir Shaham 的 HS-03 台灯用夹钳固定在桌沿，把灯头悬在工作区上方，不再占用桌面空间。灯头由三个铝制散热鳍片构成，兼顾散热与造型，配以阳极氧化铝、磨砂树脂细节和醒目的青柠绿线缆。",
+      "category": "industry",
+      "tags": [],
+      "reason": "",
+      "sourceName": "Yanko Design",
+      "score": 20,
+      "origin": "model",
+      "cover": "assets/covers/8688e62c30a917c8.webp",
+      "coverSource": "https://www.yankodesign.com/images/design_news/2026/10/the-desk-lamp-that-actually-refuses-to-sit-on-your-desk/hs03-00.jpg",
+      "coverChecked": true
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5qaFZFclEzOUZFaFpFUjdhYjVrUDFvbE9WN3hDNXFmaDlsZjI3cnRSV004NUNPSWlKenMzWUNJWF9GVHVDd0lULWJkUXJsR0hsbVVjdmFRZE1FOHVNWDFtcHFB?oc=5",
+      "title": "新华网2026“人工智能+”行业应用创新案例征集启动，10月30日截止",
+      "summary": "新华网启动2026“人工智能+”行业应用创新案例征集，申报截止时间为10月30日。征集面向“人工智能+”在各行业的应用创新实践，具体申报要求可参见智慧城市行业分析相关说明。",
+      "category": "industry",
+      "tags": [],
+      "reason": "",
+      "sourceName": "主题检索 · 创新案例",
+      "score": 12,
+      "origin": "model",
+      "coverChecked": true
+    },
+    {
+      "url": "https://blog.arduino.cc/2026/10/01/an-arduino-uno-q-lets-this-vintage-terminal-answer-questions-without-internet-access/",
+      "title": "Arduino UNO Q 让 70 年代老式终端离线运行 Llama 3.2-1B 回答问题",
+      "summary": "Cameron Coward 将 Arduino UNO Q（2GB）接入 1970 年代的德州仪器 Silent 700 纸带终端，在 Linux 侧本地运行 Llama 3.2-1B，全程不联网即可打印出问题答案。",
+      "category": "industry",
+      "tags": [],
+      "reason": "",
+      "sourceName": "Arduino · AI 创客硬件",
+      "score": 42,
+      "origin": "model",
+      "cover": "assets/covers/d8039057a7f057a3.webp",
+      "coverSource": "https://blog.arduino.cc/wp-content/uploads/2026/10/a11568f3-28db-43dd-9caa-5f3d9f826cd5.jpg",
+      "coverChecked": true
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9DMjNfVnZWb3laYTVOVjJRRVZUdWZ5RDdranYxMUxreEJuUFIxd01zZlY2THFTdXZSajJLd2hCYUI4U0ZnS20yRlZqTXE2bk9ZTWl3VkIwRXZTd2FEdFY2UDdLU09KaHY2VzJteUwzT2lZbV85VkVQSTB2NA?oc=5",
+      "title": "第45期深圳人机沙龙共探“机器鸭Microduck爆款背后的生态机遇”",
+      "summary": "第45期深圳人机沙龙以“机器鸭Microduck爆款背后的生态机遇”为主题展开探讨。活动聚焦Microduck这一爆款产品背后的生态机遇。",
+      "category": "industry",
+      "tags": [],
+      "reason": "",
+      "sourceName": "主题检索 · AI 硬件",
+      "score": 12,
+      "origin": "model",
+      "coverChecked": true
+    },
+    {
+      "url": "https://www.raspberrypi.com/news/animate-a-halloween-skeleton-raspberry-pi-book-of-making-2027/",
+      "title": "用 4 美元 Raspberry Pi Pico 让万圣节骷髅动起来 — Raspberry Pi Book of Making 2027",
+      "summary": "Raspberry Pi 官方分享了一个用 4 美元 Raspberry Pi Pico 驱动万圣节骷髅的项目，通过 9g 舵机控制肩关节和髋关节，让 90cm 的 2D 发光骷髅做出动作。项目还加入距离传感器，可在有人靠近时触发骷髅反应，舵机由 Pico 供电控制，膝盖和肘部保持松垮摆动。该教程收录于 Raspberry Pi Book of Making 2027，首发价 9.99 英镑。",
+      "category": "tip",
+      "tags": [],
+      "reason": "",
+      "sourceName": "Raspberry Pi · 端侧 AI",
+      "score": 22,
+      "origin": "model",
+      "cover": "assets/covers/1fec4c4c152fc9ae.webp",
+      "coverSource": "https://www.raspberrypi.com/app/uploads/2026/08/Book-Of-Making-2027-blog-image-1024x683.png",
+      "coverChecked": true
+    },
     {
       "url": "https://www.yankodesign.com/2026/10/03/more-freedom-without-the-scroll-a-phone-kids-actually-want-outside/?utm_source=rss&utm_medium=rss&utm_campaign=more-freedom-without-the-scroll-a-phone-kids-actually-want-outside",
       "title": "Freckle 推出儿童手机：无应用商店与社交媒体，7-13 岁专属",
