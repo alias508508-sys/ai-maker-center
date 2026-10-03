@@ -6,7 +6,7 @@ export function Wordmark({ size = 22, className = "" }: { size?: number; classNa
   return (
     <span className={`inline-flex items-center font-black leading-none tracking-[-0.03em] ${className}`} style={{ fontSize: size }} aria-label={SITE.name} role="img">
       <span aria-hidden="true" className="mr-[0.3em] inline-block size-[0.42em] rounded-full bg-accent" />
-      <span aria-hidden="true">{SITE.name}</span>
+      <span aria-hidden="true" className="flex flex-col gap-1"><span className="whitespace-nowrap">{SITE.name.split(". ")[0]}.</span><span className="whitespace-nowrap">{SITE.name.split(". ").slice(1).join(". ")}</span></span>
     </span>
   );
 }

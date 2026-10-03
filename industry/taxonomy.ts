@@ -8,12 +8,12 @@
  * 没归上类的资料在日报里放进第一个 key 为 industry 的类别所在的节（没有就放最后一节）。
  */
 export const CATEGORIES = [
-  { key: "ai-models", label: "模型", section: "模型发布/更新", guide: "新模型、模型版本、权重开放、模型能力与价格变化的发布与评测结果" },
-  { key: "ai-products", label: "产品", section: "产品发布/更新", guide: "AI 产品、功能、应用、工具、API 与平台的发布和更新" },
-  { key: "industry", label: "行业", section: "行业动态", guide: "公司经营、融资并购、人事、合作、诉讼、监管与政策、市场与基础设施" },
-  { key: "paper", label: "论文", section: "论文研究", guide: "研究论文、技术报告、基准与数据集" },
-  { key: "tip", label: "教程", section: "技巧与观点", guide: "教程、实践经验、使用技巧、提示词与工具用法、深度技术讲解" },
-  { key: "opinion", label: "观点", section: "技巧与观点", guide: "人物观点、评论、分析、访谈、现象与趋势讨论" },
+  { key: "ai-models", label: "创作模型", section: "创作模型", guide: "与图像、视频、三维、交互设计直接相关的模型能力与使用边界" },
+  { key: "ai-products", label: "设计工具", section: "设计工具", guide: "视觉、交互、视频、三维与原型设计工具的发布、更新与具体用法" },
+  { key: "industry", label: "创新案例", section: "创新案例", guide: "有具体任务、过程、成果或证据的设计创新、创客项目与 AI 应用案例" },
+  { key: "paper", label: "研究前沿", section: "研究前沿", guide: "AI 与设计、人机交互、创造力、学习科学相关的论文与研究报告" },
+  { key: "tip", label: "教育实践", section: "教育实践", guide: "真实课程、教学活动、学生项目、学习效果与可复用的设计教育方法；兼收创作实践教程" },
+  { key: "opinion", label: "观察与方法", section: "观察与方法", guide: "人物观点、评论、分析、访谈、现象与趋势讨论" },
 ] as const;
 
 /**
@@ -32,7 +32,7 @@ export const CATEGORY_TAGS = [
 
 /** 可选的主题标签。 */
 export const TOPIC_TAGS = [
-  "Agent", "编码", "推理", "多模态", "语音", "视频", "图像生成", "RAG", "端侧", "数据/训练", "搜索", "部署/工程", "开源生态", "具身智能", "MCP/工具调用",
+  "设计工具", "创新案例", "教育实践", "交互设计", "三维设计", "创客", "创造力", "Agent", "编码", "推理", "多模态", "语音", "视频", "图像生成", "RAG", "端侧", "数据/训练", "搜索", "部署/工程", "开源生态", "具身智能", "MCP/工具调用",
 ] as const;
 
 /** 可选的实体标签（公司、机构、平台）。 */

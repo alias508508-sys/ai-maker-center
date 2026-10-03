@@ -1,0 +1,20 @@
+{
+  "queries": [
+    {
+      "id": "design-tools",
+      "label": "设计工具",
+      "query": "(\"AI\" OR \"人工智能\") (设计工具 OR 设计软件 OR 创作工具) when:7d"
+    },
+    {
+      "id": "innovation",
+      "label": "创新案例",
+      "query": "(\"AI\" OR \"人工智能\") (设计创新 OR 创新案例 OR 创客) when:7d"
+    },
+    {
+      "id": "education",
+      "label": "教育实践",
+      "query": "(\"AI\" OR \"人工智能\") (设计教学 OR 教育实践 OR 课程案例) when:7d"
+    }
+  ],
+  "note": "修改查询后运行 node scripts/maker-search-config.ts，再运行 seed；已存在信源需在后台更新或运行配置脚本 --sync。"
+}

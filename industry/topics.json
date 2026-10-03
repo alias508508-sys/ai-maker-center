@@ -8,8 +8,8 @@
     },
     {
       "key": "field",
-      "name": "技术方向",
-      "blurb": "按技术领域深挖：Agent、多模态、具身智能……"
+      "name": "设计与实践",
+      "blurb": "按设计工具、创新案例与教育实践探索"
     },
     {
       "key": "genre",
@@ -573,6 +573,36 @@
         "safety",
         "trends"
       ]
+    },
+    {
+      "slug": "design-tools",
+      "name": "设计工具",
+      "group": "field",
+      "tags": [
+        "设计工具"
+      ],
+      "definition": "关注设计工具的具体方法、应用证据与实践价值。",
+      "related": []
+    },
+    {
+      "slug": "innovation",
+      "name": "创新案例",
+      "group": "field",
+      "tags": [
+        "创新案例"
+      ],
+      "definition": "关注创新案例的具体方法、应用证据与实践价值。",
+      "related": []
+    },
+    {
+      "slug": "education",
+      "name": "教育实践",
+      "group": "field",
+      "tags": [
+        "教育实践"
+      ],
+      "definition": "关注教育实践的具体方法、应用证据与实践价值。",
+      "related": []
     }
   ]
 }
