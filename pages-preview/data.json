@@ -1,15 +1,87 @@
 {
-  "updatedAt": null,
-  "runs": 0,
+  "updatedAt": "2026-10-03T09:41:25.511Z",
+  "runs": 1,
   "seen": [
     "https://news.mit.edu/2026/instructmesh-tool-lets-users-repair-ai-3d-models-then-fabricate-them-1001",
     "https://news.mit.edu/2026/3-questions-new-resource-empower-young-entrepreneurs-1002",
     "https://blog.google/innovation-and-ai/products/gemini-app/guided-vision-gemini-live/",
     "https://www.dezeen.com/2026/10/02/rafael-prieto-the-future-of-the-past-emma-scully-gallery/",
     "https://www.designboom.com/art/color-shifting-light-sculpture-la-philharmonic-walt-disney-concert-hall-grimanesa-amoros/",
-    "https://www.designboom.com/art/carsten-holler-surreal-games-polaroid-worlds-largest-instant-camera-documentary/"
+    "https://www.designboom.com/art/carsten-holler-surreal-games-polaroid-worlds-largest-instant-camera-documentary/",
+    "https://www.designboom.com/architecture/cypress-marble-rippling-glass-apartment-local-locals-athens-studio/",
+    "https://www.designboom.com/architecture/moving-shingles-timber-tower-lunano-stone-architecture-collectif-magma-what-stones-whisper/",
+    "https://www.designboom.com/architecture/loewe-paris-runway-ethereal-arena-casper-mueller-kneer-spring-summer-ss27/",
+    "https://www.designboom.com/design/generative-code-patterns-mm-collective-ceramic-flower-vases-mk-designers/",
+    "https://www.designboom.com/art/marina-abramovic-seven-deaths-cisterne-copenhagen/",
+    "https://www.designboom.com/design/makelab-expands-footprint-at-made-bush-terminal/"
   ],
   "items": [
+    {
+      "url": "https://www.designboom.com/architecture/cypress-marble-rippling-glass-apartment-local-locals-athens-studio/",
+      "title": "柏木、大理石与波纹玻璃：Local Local 改造雅典公寓为工作室",
+      "summary": "希腊建筑事务所 Local Local 将雅典 Kolonaki 街区一套底层公寓改造成其首个永久工作室，采用非结构性轻改造，保留原有建筑特征。设计修复并提亮原木地板、将墙面刷白、以深色调复原波纹玻璃门，并保留拱形入口；L 形平面围绕主工作区与由卧室改造的会议室组织，家具融合原有物件与定制设计。",
+      "category": "industry",
+      "tags": [],
+      "reason": "",
+      "sourceName": "designboom",
+      "score": 8,
+      "origin": "model"
+    },
+    {
+      "url": "https://www.designboom.com/architecture/moving-shingles-timber-tower-lunano-stone-architecture-collectif-magma-what-stones-whisper/",
+      "title": "Collectif MAGMA 在意大利 Lunano 建成 6 米高木塔 What the Stones Whisper，可动木瓦立面呼应石塔建筑",
+      "summary": "Collectif MAGMA 在意大利 Marche 大区 Lunano 设计建造了 6 米高的木塔 What the Stones Whisper，为 Fe.M – Festival di Microarchitettura 而作，两周内完成。塔体由 8 个三角木框架和 50 × 60 mm 松木条搭建，10 层木瓦用黄麻绳悬挂，随风摆动形成变化的光影与声景，超过 500 片木瓦在风中摇曳。",
+      "category": "industry",
+      "tags": [],
+      "reason": "",
+      "sourceName": "designboom",
+      "score": 12,
+      "origin": "model"
+    },
+    {
+      "url": "https://www.designboom.com/architecture/loewe-paris-runway-ethereal-arena-casper-mueller-kneer-spring-summer-ss27/",
+      "title": "LOEWE 巴黎时装秀场：Casper Mueller Kneer 打造两层环形竞技场式秀道",
+      "summary": "Casper Mueller Kneer Architects 为 LOEWE 2027 春夏系列在巴黎 Château de Vincennes 庭院内搭建了一座两层环形竞技场式秀场，观众可从地面和二层阳台多角度观看模特走秀。设计参考了帕多瓦解剖剧场、伦敦 Globe Theatre 及底特律工业储气罐，以白色脚手架和半透明织物构成，模特沿锯齿形长凳间的窄道穿行。",
+      "category": "industry",
+      "tags": [],
+      "reason": "",
+      "sourceName": "designboom",
+      "score": 20,
+      "origin": "model"
+    },
+    {
+      "url": "https://www.designboom.com/design/generative-code-patterns-mm-collective-ceramic-flower-vases-mk-designers/",
+      "title": "MM Collective 用生成式代码把牡丹、百合、郁金香变成陶瓷花瓶图案",
+      "summary": "MK Designers 的 Michaela Zdeňková 与 Marek Kounovský 推出 MM Collective 系列，包含三只陶瓷花瓶，分别以牡丹、百合和郁金香为起点。每只花瓶由产品设计塑造器型，再通过生成式编码把花的自然形态转译为抽象结构，并将生成的图案转移到陶瓷表面。",
+      "category": "industry",
+      "tags": [],
+      "reason": "",
+      "sourceName": "designboom",
+      "score": 22,
+      "origin": "model"
+    },
+    {
+      "url": "https://www.designboom.com/art/marina-abramovic-seven-deaths-cisterne-copenhagen/",
+      "title": "Marina Abramović 的 Seven Deaths 在哥本哈根 Cisternerne 地下水库展出",
+      "summary": "Marina Abramović 的影像装置 Seven Deaths 在哥本哈根 Cisternerne 地下水库展出，她与 Willem Dafoe 出演七段短片，配以 Maria Callas 的录音，重现七位歌剧女主角之死。全场同一时间只放映一部影片，观众需在黑暗潮湿的蓄水池中不断起身换场，完整体验约需一小时。展期为 2026 年 3 月 14 日至 11 月 30 日。",
+      "category": "industry",
+      "tags": [],
+      "reason": "",
+      "sourceName": "designboom",
+      "score": 18,
+      "origin": "model"
+    },
+    {
+      "url": "https://www.designboom.com/design/makelab-expands-footprint-at-made-bush-terminal/",
+      "title": "Makelab 入驻 MADE: Bush Terminal，扩建 3D 打印产能承接一级客户",
+      "summary": "按需 3D 打印工作室 Makelab 在布鲁克林 MADE: Bush Terminal 拿下 3,840 平方英尺新场地，用于扩大产能并承接一级客户订单。联合创始人兼 CEO Christina Perla 称，新址已能接待客户派来的 53 英尺卡车，而旧场地受通行条件限制无法做到。该园区为占地 140,000 平方英尺的工业厂区，由 NYCEDC 推动改造。",
+      "category": "industry",
+      "tags": [],
+      "reason": "",
+      "sourceName": "designboom",
+      "score": 22,
+      "origin": "model"
+    },
     {
       "sourceId": "rss-mit-ai",
       "url": "https://news.mit.edu/2026/instructmesh-tool-lets-users-repair-ai-3d-models-then-fabricate-them-1001",
