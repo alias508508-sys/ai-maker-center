@@ -56,6 +56,7 @@ jobs:
           test -n "$LLM_API_KEY" || { echo '缺少 DEEPSEEK_API_KEY'; exit 1; }
           node scripts/maker-auto.ts
           node scripts/maker-covers.ts
+          node scripts/maker-archive.ts
           node scripts/maker-pages.ts
       - name: Save public results
         run: |

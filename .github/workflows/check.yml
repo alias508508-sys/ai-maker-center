@@ -56,6 +56,8 @@ jobs:
           echo "/usr/lib/postgresql/17/bin" >> "$GITHUB_PATH"
           /usr/lib/postgresql/17/bin/pg_dump --version
           /usr/lib/postgresql/17/bin/pg_restore --version
+      - name: Archive tests
+        run: node --test scripts/maker-archive.test.ts
       - name: Typecheck
         run: npm run typecheck
       - name: Build web

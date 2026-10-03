@@ -1,5 +1,5 @@
 // Actions 批次：复用原框架回执、预算、分析和公开读取层。
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { sql, closeDb } from '@aihot/backend/db';
 import { fetchWebList } from '@aihot/backend/sources/web-list';
 import type { Candidate } from '@aihot/backend/sources/types';
@@ -61,7 +61,10 @@ await new Promise(resolve => setTimeout(resolve, 181000));
 const result = await v1Items({ mode: 'all', window: '7d', by: 'published', category: null, q: null, limit: 100, cursor: null });
 const fresh = result.items.map(i => ({ url: i.links.original, title: i.title, summary: i.summary || '', category: i.category, tags: [], reason: i.reason || '', sourceName: i.source.name, score: i.score, origin: 'model' }));
 const merged = [...fresh, ...old.items.filter((i: {url:string}) => !fresh.some(n => n.url === i.url))].slice(0, 200);
-writeFileSync(path, JSON.stringify({ updatedAt: new Date().toISOString(), runs: (old.runs ?? 0) + 1, seen: [...seen].slice(-5000), sources: status, items: merged }, null, 2));
+const updatedAt = new Date().toISOString();
+mkdirSync('.data', { recursive: true });
+writeFileSync('.data/maker-batch.json', JSON.stringify({ updatedAt, urls: fresh.map(i => i.url) }));
+writeFileSync(path, JSON.stringify({ updatedAt, runs: (old.runs ?? 0) + 1, seen: [...seen].slice(-5000), sources: status, items: merged }, null, 2));
 console.log(`公开新增 ${fresh.length} 条，保留 ${merged.length} 条`);
 await stopBoss();
 await closeDb();
