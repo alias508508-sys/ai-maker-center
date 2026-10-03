@@ -24,6 +24,31 @@
       "id": "kickstarter-design",
       "label": "Kickstarter 设计项目报道",
       "query": "Kickstarter (design OR 设计 OR hardware OR 硬件) when:7d"
+    },
+    {
+      "id": "kickstarter-media",
+      "label": "Kickstarter · 设计媒体",
+      "query": "Kickstarter (site:yankodesign.com OR site:core77.com OR site:designboom.com) when:30d"
+    },
+    {
+      "id": "ai-robotics",
+      "label": "AI 机器人",
+      "query": "(\"AI\" OR \"人工智能\" OR \"具身智能\") (机器人 OR robot OR robotics) when:7d"
+    },
+    {
+      "id": "ai-wearables",
+      "label": "AI 眼镜与可穿戴",
+      "query": "(\"AI\" OR \"人工智能\") (智能眼镜 OR 可穿戴 OR 智能耳机 OR smart glasses) when:7d"
+    },
+    {
+      "id": "ai-maker-hardware",
+      "label": "AI 创客与教育硬件",
+      "query": "(\"AI\" OR \"人工智能\") (开发板 OR 智能相机 OR 教育机器人 OR Arduino OR Raspberry Pi) when:7d"
+    },
+    {
+      "id": "ai-home-devices",
+      "label": "AI 家居设备",
+      "query": "(\"AI\" OR \"人工智能\") (智能家居 OR 陪伴设备 OR 智能玩具 OR 智能家电) when:7d"
     }
   ],
   "note": "修改查询后运行 node scripts/maker-search-config.ts，再运行 seed；已存在信源需在后台更新或运行配置脚本 --sync。"

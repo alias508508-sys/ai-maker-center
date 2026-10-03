@@ -225,6 +225,130 @@
       "interval_minutes": 180,
       "site_fulltext": false,
       "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-yanko-design",
+      "name": "Yanko Design",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.yankodesign.com/feed/"
+      },
+      "tier": "T2",
+      "first_party": false,
+      "participation_mode": "editorial",
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "search-kickstarter-media",
+      "name": "主题检索 · Kickstarter · 设计媒体",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://news.google.com/rss/search?q=Kickstarter+%28site%3Ayankodesign.com+OR+site%3Acore77.com+OR+site%3Adesignboom.com%29+when%3A30d&hl=zh-CN&gl=CN&ceid=CN%3Azh-Hans",
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T2",
+      "first_party": false,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-arduino",
+      "name": "Arduino · AI 创客硬件",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://blog.arduino.cc/feed/"
+      },
+      "tier": "T1",
+      "first_party": true,
+      "participation_mode": "editorial",
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-raspberrypi",
+      "name": "Raspberry Pi · 端侧 AI",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.raspberrypi.com/news/feed/"
+      },
+      "tier": "T1",
+      "first_party": true,
+      "participation_mode": "editorial",
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "search-ai-robotics",
+      "name": "主题检索 · AI 机器人",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://news.google.com/rss/search?q=%28%22AI%22+OR+%22%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%22+OR+%22%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD%22%29+%28%E6%9C%BA%E5%99%A8%E4%BA%BA+OR+robot+OR+robotics%29+when%3A7d&hl=zh-CN&gl=CN&ceid=CN%3Azh-Hans",
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T2",
+      "first_party": false,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "search-ai-wearables",
+      "name": "主题检索 · AI 眼镜与可穿戴",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://news.google.com/rss/search?q=%28%22AI%22+OR+%22%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%22%29+%28%E6%99%BA%E8%83%BD%E7%9C%BC%E9%95%9C+OR+%E5%8F%AF%E7%A9%BF%E6%88%B4+OR+%E6%99%BA%E8%83%BD%E8%80%B3%E6%9C%BA+OR+smart+glasses%29+when%3A7d&hl=zh-CN&gl=CN&ceid=CN%3Azh-Hans",
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T2",
+      "first_party": false,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "search-ai-maker-hardware",
+      "name": "主题检索 · AI 创客与教育硬件",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://news.google.com/rss/search?q=%28%22AI%22+OR+%22%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%22%29+%28%E5%BC%80%E5%8F%91%E6%9D%BF+OR+%E6%99%BA%E8%83%BD%E7%9B%B8%E6%9C%BA+OR+%E6%95%99%E8%82%B2%E6%9C%BA%E5%99%A8%E4%BA%BA+OR+Arduino+OR+Raspberry+Pi%29+when%3A7d&hl=zh-CN&gl=CN&ceid=CN%3Azh-Hans",
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T2",
+      "first_party": false,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "search-ai-home-devices",
+      "name": "主题检索 · AI 家居设备",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://news.google.com/rss/search?q=%28%22AI%22+OR+%22%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%22%29+%28%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85+OR+%E9%99%AA%E4%BC%B4%E8%AE%BE%E5%A4%87+OR+%E6%99%BA%E8%83%BD%E7%8E%A9%E5%85%B7+OR+%E6%99%BA%E8%83%BD%E5%AE%B6%E7%94%B5%29+when%3A7d&hl=zh-CN&gl=CN&ceid=CN%3Azh-Hans",
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T2",
+      "first_party": false,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "site_fulltext": false,
+      "syndicate_fulltext": false
     }
   ]
 }

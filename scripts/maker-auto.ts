@@ -9,6 +9,7 @@ import { upsertMaterial } from '@aihot/backend/content/materials';
 import { analyzeArticle } from '@aihot/backend/editorial/analyze';
 import { publishArticle } from '@aihot/backend/publication/publish';
 import { v1Items } from '@aihot/backend/publication/v1';
+import { stopBoss } from '@aihot/backend/jobs/queue';
 import { BudgetExceededError } from '@aihot/backend/providers/receipts';
 const path = 'pages-preview/data.json';
 const old = JSON.parse(readFileSync(path, 'utf8'));
@@ -62,4 +63,5 @@ const fresh = result.items.map(i => ({ url: i.links.original, title: i.title, su
 const merged = [...fresh, ...old.items.filter((i: {url:string}) => !fresh.some(n => n.url === i.url))].slice(0, 200);
 writeFileSync(path, JSON.stringify({ updatedAt: new Date().toISOString(), runs: (old.runs ?? 0) + 1, seen: [...seen].slice(-5000), sources: status, items: merged }, null, 2));
 console.log(`公开新增 ${fresh.length} 条，保留 ${merged.length} 条`);
+await stopBoss();
 await closeDb();
