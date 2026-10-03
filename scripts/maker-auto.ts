@@ -10,17 +10,30 @@ import { analyzeArticle } from '@aihot/backend/editorial/analyze';
 import { publishArticle } from '@aihot/backend/publication/publish';
 import { v1Items } from '@aihot/backend/publication/v1';
 import { stopBoss } from '@aihot/backend/jobs/queue';
+import { submittedCandidate, saveBookmark, linkUrl } from './maker-links.ts';
 import { BudgetExceededError } from '@aihot/backend/providers/receipts';
 const path = 'pages-preview/data.json';
 const old = JSON.parse(readFileSync(path, 'utf8'));
 const seen = new Set<string>(old.seen);
-const sources = await sql<SourceRow[]>`SELECT * FROM sources WHERE enabled AND kind IN ('rss','web_list') ORDER BY id`;
+const inputUrl = process.env.MAKER_ARTICLE_URL?.trim();
+const submittedUrl = inputUrl ? linkUrl(inputUrl) : undefined;
+const sources = submittedUrl ? [] : await sql<SourceRow[]>`SELECT * FROM sources WHERE enabled AND kind IN ('rss','web_list') ORDER BY id`;
 await sql`UPDATE budgets SET per_minute=30, per_hour=30, per_day=30 WHERE service IN ('llm','deepseek')`;
 let processed = 0, fetched = 0;
 const status: Array<{name:string;count:number;status:string}> = [];
 const pools: Array<{source:SourceRow;candidates:Candidate[]}> = [];
 // 轮换起始信源，避免总是被第一个信源占满。
-const offset = Number(old.runs ?? 0) % sources.length;
+const offset = sources.length ? Number(old.runs ?? 0) % sources.length : 0;
+if (submittedUrl) {
+  const candidate = await submittedCandidate(submittedUrl);
+  saveBookmark(submittedUrl, process.env.MAKER_NOTE ?? '', candidate ? 'extracted' : 'link-only');
+  fetched = 1;
+  if (candidate && !seen.has(candidate.url)) {
+    await sql`INSERT INTO sources (id,name,kind,tier,site_fulltext,syndicate_fulltext,enabled) VALUES ('maker-links','个人提交','external','T2',false,false,false) ON CONFLICT (id) DO NOTHING`;
+    const [source] = await sql<SourceRow[]>`SELECT * FROM sources WHERE id='maker-links'`;
+    pools.push({source: source!, candidates: [candidate]});
+  }
+}
 for (const source of [...sources.slice(offset), ...sources.slice(0, offset)]) {
   try {
     const candidates = source.kind === 'rss' ? (await fetchRss(source, { force: true })).candidates : await fetchWebList(source, { preview: true });
@@ -64,7 +77,8 @@ const merged = [...fresh, ...old.items.filter((i: {url:string}) => !fresh.some(n
 const updatedAt = new Date().toISOString();
 mkdirSync('.data', { recursive: true });
 writeFileSync('.data/maker-batch.json', JSON.stringify({ updatedAt, urls: fresh.map(i => i.url) }));
-writeFileSync(path, JSON.stringify({ updatedAt, runs: (old.runs ?? 0) + 1, seen: [...seen].slice(-5000), sources: status, items: merged }, null, 2));
+writeFileSync(path, JSON.stringify({ updatedAt, runs: (old.runs ?? 0) + 1, seen: [...seen].slice(-5000), sources: submittedUrl ? old.sources : status, items: merged }, null, 2));
+if (submittedUrl) saveBookmark(submittedUrl, process.env.MAKER_NOTE ?? '', fresh.some(i => i.url === submittedUrl) || old.items.some((i: {url:string}) => i.url === submittedUrl) ? 'published' : 'saved');
 console.log(`公开新增 ${fresh.length} 条，保留 ${merged.length} 条`);
 await stopBoss();
 await closeDb();

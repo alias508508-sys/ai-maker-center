@@ -4,6 +4,14 @@ on:
     - cron: '17 */6 * * *'
   workflow_dispatch:
     inputs:
+      article_url:
+        description: 收藏公开资讯链接（留空则运行定时信源采集）
+        type: string
+        default: ''
+      note:
+        description: 收藏备注（公开保存，请勿填写私人信息）
+        type: string
+        default: ''
       test_new_sources:
         description: 优先验证新增信源
         type: boolean
@@ -50,6 +58,8 @@ jobs:
       - run: node scripts/seed.ts
       - name: Collect and edit
         env:
+          MAKER_ARTICLE_URL: ${{ inputs.article_url }}
+          MAKER_NOTE: ${{ inputs.note }}
           MAKER_TEST_NEW_SOURCES: ${{ inputs.test_new_sources }}
           LLM_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: |
