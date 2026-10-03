@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-03T13:48:52.369Z",
-  "runs": 4,
+  "updatedAt": "2026-10-03T13:54:04.795Z",
+  "runs": 5,
   "seen": [
     "https://news.mit.edu/2026/instructmesh-tool-lets-users-repair-ai-3d-models-then-fabricate-them-1001",
     "https://news.mit.edu/2026/3-questions-new-resource-empower-young-entrepreneurs-1002",
@@ -126,6 +126,20 @@
     }
   ],
   "items": [
+    {
+      "url": "https://www.cmu.edu/news/stories/archives/2025/august/carnegie-mellons-moonranger-slated-to-fly-on-2029-lunar-mission",
+      "title": "卡内基梅隆大学MoonRanger月球车将于2029年执行月球任务",
+      "summary": "NASA已选定卡内基梅隆大学建造的月球车MoonRanger参与2029年月球任务，该车将自主探索月球南极附近，携带中子光谱仪研究月球土壤中的氢痕迹以寻找水，并展示新的自主导航水平。任务将使用Firefly Aerospace的Elytra轨道飞行器和Blue Ghost着陆器，同时搭载加拿大航天局的月球车和三个固定科学仪器。MoonRanger大小如手提箱，在月球上重约7磅，预计运行一个月球日（最多14个地球日），不设计在月球夜晚生存。它携带前后两组立体相机，能感知地形、构建表面模型并找到通往远处目标的路径，无需遥操作或人工干预即可从一个航点移动到另一个航点。",
+      "category": "industry",
+      "tags": [],
+      "reason": "站主提交，直接发布；AI 整理摘要",
+      "sourceName": "个人提交",
+      "score": null,
+      "origin": "model",
+      "cover": "assets/covers/f2f2000c79f043fe.webp",
+      "coverSource": "https://www.cmu.edu/news/sites/default/files/styles/embedded_max/public/2025-08/MoonRanger-2025--2125.jpg.webp?itok=FXEixvG5",
+      "coverChecked": true
+    },
     {
       "url": "https://news.mit.edu/2026/computational-tools-for-societys-most-complex-challenges-cathy-wu-1002",
       "title": "MIT 副教授 Cathy Wu 用强化学习优化交通系统，训练效率最高提升 30 倍",
