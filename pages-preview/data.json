@@ -134,7 +134,10 @@
       "reason": "",
       "sourceName": "MIT News · AI",
       "score": 22,
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/bebca6424b0efee5.webp",
+      "coverSource": "https://news.mit.edu/sites/default/files/images/202609/mit-lids-Cathy-Wu.jpg",
+      "coverChecked": true
     },
     {
       "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/",
@@ -145,7 +148,10 @@
       "reason": "",
       "sourceName": "Google Blog",
       "score": 12,
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/6a7bb4e3e69d69f5.webp",
+      "coverSource": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/September_AI_Recap_hero.width-1300.png",
+      "coverChecked": true
     },
     {
       "url": "https://blogs.nvidia.com/blog/local-ai-dgx-spark-64gb-sync/",
@@ -156,7 +162,10 @@
       "reason": "原文给出 64GB 新配置的定价、可跑模型规模与双机集群方式，便于判断本地跑智能体的硬件门槛。",
       "sourceName": "NVIDIA Blog",
       "score": 62,
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/cecaa627e24bd973.webp",
+      "coverSource": "https://blogs.nvidia.com/wp-content/uploads/2026/10/nv-blog-1280x680-1.jpg",
+      "coverChecked": true
     },
     {
       "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFA1Vk9BOFVLMFNNOXdkMEU2d0x2Y0FXSVlZWnc4YjdYTE1OUzhXVXpFeFcwWlAyVHRhc1AtS1dTSVFWSExzUS05NkExVXYydw?oc=5",
@@ -167,7 +176,8 @@
       "reason": "",
       "sourceName": "主题检索 · AI 创客与教育硬件",
       "score": 52,
-      "origin": "model"
+      "origin": "model",
+      "coverChecked": true
     },
     {
       "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOUDFSX3F1R1RJbEZEOTdabFp5b3FrdUJPWUF4YVNqQTFTamhtWFNKRlZkZ0hTNzE1MFVGYUpxZV9td3BWSzVLTnhJckhDWTRfNjJhbXFsQXFHMFRDRHRhTExwOHBKZjM3SnpFdUdoM1hscFVyWC1YVEVpNXJrYjRHZXQ4YWwtT0I4RWhoVHV2OXNCdw?oc=5",
@@ -178,7 +188,8 @@
       "reason": "",
       "sourceName": "主题检索 · AI 硬件",
       "score": 10,
-      "origin": "model"
+      "origin": "model",
+      "coverChecked": true
     },
     {
       "url": "https://www.designboom.com/architecture/cypress-marble-rippling-glass-apartment-local-locals-athens-studio/",
@@ -189,7 +200,10 @@
       "reason": "",
       "sourceName": "designboom",
       "score": 8,
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/758933d91a93088f.webp",
+      "coverSource": "https://www.designboom.com/twitterimages/uploads/2026/10/cypress-marble-rippling-glass-apartment-local-local-athens-studio-designboom-1200.jpg",
+      "coverChecked": true
     },
     {
       "url": "https://www.designboom.com/architecture/moving-shingles-timber-tower-lunano-stone-architecture-collectif-magma-what-stones-whisper/",
@@ -200,7 +214,10 @@
       "reason": "",
       "sourceName": "designboom",
       "score": 12,
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/e2321f0ac932e7bd.webp",
+      "coverSource": "https://www.designboom.com/twitterimages/uploads/2026/10/collectif-magma-what-stones-whisper-timber-tower-installation-lunano-italy-designboom-1200-1.jpg",
+      "coverChecked": true
     },
     {
       "url": "https://www.designboom.com/architecture/loewe-paris-runway-ethereal-arena-casper-mueller-kneer-spring-summer-ss27/",
@@ -211,7 +228,10 @@
       "reason": "",
       "sourceName": "designboom",
       "score": 20,
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/f480524de0a68dad.webp",
+      "coverSource": "https://www.designboom.com/twitterimages/uploads/2026/10/loewe-women-ss27-casper-mueller-kneer-architects-designboom-FB.jpg",
+      "coverChecked": true
     },
     {
       "url": "https://www.designboom.com/design/generative-code-patterns-mm-collective-ceramic-flower-vases-mk-designers/",
@@ -222,7 +242,10 @@
       "reason": "",
       "sourceName": "designboom",
       "score": 22,
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/ba62f15e63622e2c.webp",
+      "coverSource": "https://www.designboom.com/twitterimages/uploads/2026/10/generative-code-patterns-mm-collective-ceramic-flower-vases-mk-designers-designboom-1200-2.jpg",
+      "coverChecked": true
     },
     {
       "url": "https://www.designboom.com/art/marina-abramovic-seven-deaths-cisterne-copenhagen/",
@@ -233,7 +256,10 @@
       "reason": "",
       "sourceName": "designboom",
       "score": 18,
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/817eb40cd90b5101.webp",
+      "coverSource": "https://www.designboom.com/twitterimages/uploads/2026/10/marina-abramovic-seven-deaths-cisterne-copenhagen-designboom-FB.jpg",
+      "coverChecked": true
     },
     {
       "url": "https://www.designboom.com/design/makelab-expands-footprint-at-made-bush-terminal/",
@@ -244,7 +270,10 @@
       "reason": "",
       "sourceName": "designboom",
       "score": 22,
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/7d387cd6fa30eac3.webp",
+      "coverSource": "https://www.designboom.com/twitterimages/uploads/2026/10/makelab_designboom_facebook.jpg",
+      "coverChecked": true
     },
     {
       "sourceId": "rss-mit-ai",
@@ -257,7 +286,10 @@
         "设计工具",
         "三维设计"
       ],
-      "reason": "本地人工整理：适合观察 AI 生成、人工编辑和实体制作之间的设计工作流。"
+      "reason": "本地人工整理：适合观察 AI 生成、人工编辑和实体制作之间的设计工作流。",
+      "cover": "assets/covers/02c744c8cb64f92f.webp",
+      "coverSource": "https://news.mit.edu/sites/default/files/images/202609/mit-csail-InstructMesh.jpg",
+      "coverChecked": true
     },
     {
       "sourceId": "rss-mit-ai",
@@ -270,7 +302,10 @@
         "教育实践",
         "创客"
       ],
-      "reason": "本地人工整理：可作为创新教育资源与学生项目设计的观察入口。"
+      "reason": "本地人工整理：可作为创新教育资源与学生项目设计的观察入口。",
+      "cover": "assets/covers/59d88ee0fd4c3ec0.webp",
+      "coverSource": "https://news.mit.edu/sites/default/files/images/202610/MIT-Dear-Dreamer-01-press.jpg",
+      "coverChecked": true
     },
     {
       "sourceId": "rss-google-blog",
@@ -284,7 +319,10 @@
         "交互设计",
         "Google"
       ],
-      "reason": "本地人工整理：关注无障碍设计、参与式设计与 AI 辅助交互。"
+      "reason": "本地人工整理：关注无障碍设计、参与式设计与 AI 辅助交互。",
+      "cover": "assets/covers/058f1d37f378336c.webp",
+      "coverSource": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/GuidedVision_hero.width-1300.png",
+      "coverChecked": true
     },
     {
       "sourceId": "rss-dezeen",
@@ -296,7 +334,8 @@
         "行业动态",
         "创新案例"
       ],
-      "reason": "本地人工整理：可用于材料再利用、地方记忆与家具设计的案例讨论。"
+      "reason": "本地人工整理：可用于材料再利用、地方记忆与家具设计的案例讨论。",
+      "coverChecked": true
     },
     {
       "sourceId": "rss-designboom",
@@ -309,7 +348,10 @@
         "创新案例",
         "交互设计"
       ],
-      "reason": "本地人工整理：适合作为空间体验与动态视觉设计的案例入口。"
+      "reason": "本地人工整理：适合作为空间体验与动态视觉设计的案例入口。",
+      "cover": "assets/covers/daa6f8fbd03de8ad.webp",
+      "coverSource": "https://www.designboom.com/twitterimages/uploads/2026/10/radiance-light-sculpture-installation-grimanesa-amoros-la-philharmonic-walt-disney-concert-hall-designboom-1200.jpg",
+      "coverChecked": true
     },
     {
       "sourceId": "rss-designboom",
@@ -322,7 +364,10 @@
         "创新案例",
         "创造力"
       ],
-      "reason": "本地人工整理：可观察游戏机制、参与式艺术与影像创作如何结合。"
+      "reason": "本地人工整理：可观察游戏机制、参与式艺术与影像创作如何结合。",
+      "cover": "assets/covers/7861a05feb71845d.webp",
+      "coverSource": "https://www.designboom.com/twitterimages/uploads/2026/10/carsten-holler-polaroid-documentary-games-designboom-FB.jpg",
+      "coverChecked": true
     }
   ]
 }

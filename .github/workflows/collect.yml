@@ -55,12 +55,13 @@ jobs:
         run: |
           test -n "$LLM_API_KEY" || { echo '缺少 DEEPSEEK_API_KEY'; exit 1; }
           node scripts/maker-auto.ts
+          node scripts/maker-covers.ts
           node scripts/maker-pages.ts
       - name: Save public results
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add pages-preview/data.json pages-preview/index.html
+          git add pages-preview
           git diff --cached --quiet || git commit -m 'Update collected public news'
           git push origin HEAD:main
       - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b
