@@ -30,7 +30,7 @@ if (submittedUrl) {
   const candidate = await submittedCandidate(submittedUrl);
   saveBookmark(submittedUrl, process.env.MAKER_NOTE ?? '', candidate ? 'extracted' : 'link-only');
   fetched = 1;
-  if (candidate && !seen.has(candidate.url)) {
+  if (candidate && !old.items.some((i: {url:string}) => i.url === candidate.url)) {
     await sql`INSERT INTO sources (id,name,kind,tier,site_fulltext,syndicate_fulltext,enabled) VALUES ('maker-links','个人提交','external','T2',false,false,false) ON CONFLICT (id) DO NOTHING`;
     const [source] = await sql<SourceRow[]>`SELECT * FROM sources WHERE id='maker-links'`;
     pools.push({source: source!, candidates: [candidate]});
@@ -51,7 +51,7 @@ const batch = Array.from({length:8},(_,index) => pools.flatMap(p => p.candidates
 for (const {source,candidate} of batch) {
 
     if (processed >= 12) break;
-    if (seen.has(candidate.url)) continue;
+    if (!submittedUrl && seen.has(candidate.url)) continue;
     const body = candidate.bodyText || candidate.excerpt;
     // 只依据公开订阅内容；标题不足以生成可信摘要。
     if (!body || body.length < 30) continue;
