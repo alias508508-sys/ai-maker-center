@@ -136,6 +136,95 @@
       "interval_minutes": 180,
       "site_fulltext": false,
       "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-nvidia-blog",
+      "name": "NVIDIA Blog",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://blogs.nvidia.com/feed/",
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "first_party": true,
+      "owner_entity_id": "nvidia",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "web-kickstarter-design",
+      "name": "Kickstarter · Design",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.kickstarter.com/discover/categories/design?sort=magic&agg_fields=state&category_id%5B%5D=7&state%5B%5D=upcoming&state%5B%5D=live&state%5B%5D=late_pledge",
+        "parseMode": "html",
+        "itemSelector": ".js-react-proj-card, .project-card",
+        "linkSelector": "a[href*=\"/projects/\"]",
+        "titleSelector": "h3",
+        "allowUrlPrefixes": [
+          "https://www.kickstarter.com/projects/"
+        ]
+      },
+      "tier": "T1",
+      "first_party": true,
+      "participation_mode": "editorial",
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-aihot-hardware",
+      "name": "AIHOT · AI 硬件（待数据再分发授权）",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://aihot.news/feed/all.xml"
+      },
+      "enabled": false,
+      "tier": "T2",
+      "first_party": false,
+      "participation_mode": "editorial",
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "search-ai-hardware",
+      "name": "主题检索 · AI 硬件",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://news.google.com/rss/search?q=%28%22AI%22+OR+%22%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%22%29+%28%E6%99%BA%E8%83%BD%E7%A1%AC%E4%BB%B6+OR+%E6%9C%BA%E5%99%A8%E4%BA%BA+OR+%E6%99%BA%E8%83%BD%E7%9C%BC%E9%95%9C+OR+%E5%8F%AF%E7%A9%BF%E6%88%B4+OR+%E5%88%9B%E5%AE%A2%E7%A1%AC%E4%BB%B6%29+when%3A7d&hl=zh-CN&gl=CN&ceid=CN%3Azh-Hans",
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T2",
+      "first_party": false,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "search-kickstarter-design",
+      "name": "主题检索 · Kickstarter 设计项目报道",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://news.google.com/rss/search?q=Kickstarter+%28design+OR+%E8%AE%BE%E8%AE%A1+OR+hardware+OR+%E7%A1%AC%E4%BB%B6%29+when%3A7d&hl=zh-CN&gl=CN&ceid=CN%3Azh-Hans",
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T2",
+      "first_party": false,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "site_fulltext": false,
+      "syndicate_fulltext": false
     }
   ]
 }

@@ -3,6 +3,11 @@ on:
   schedule:
     - cron: '17 */6 * * *'
   workflow_dispatch:
+    inputs:
+      test_new_sources:
+        description: 优先验证新增信源
+        type: boolean
+        default: false
 permissions:
   contents: write
   pages: write
@@ -45,6 +50,7 @@ jobs:
       - run: node scripts/seed.ts
       - name: Collect and edit
         env:
+          MAKER_TEST_NEW_SOURCES: ${{ inputs.test_new_sources }}
           LLM_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: |
           test -n "$LLM_API_KEY" || { echo '缺少 DEEPSEEK_API_KEY'; exit 1; }

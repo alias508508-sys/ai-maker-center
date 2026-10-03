@@ -14,6 +14,16 @@
       "id": "education",
       "label": "教育实践",
       "query": "(\"AI\" OR \"人工智能\") (设计教学 OR 教育实践 OR 课程案例) when:7d"
+    },
+    {
+      "id": "ai-hardware",
+      "label": "AI 硬件",
+      "query": "(\"AI\" OR \"人工智能\") (智能硬件 OR 机器人 OR 智能眼镜 OR 可穿戴 OR 创客硬件) when:7d"
+    },
+    {
+      "id": "kickstarter-design",
+      "label": "Kickstarter 设计项目报道",
+      "query": "Kickstarter (design OR 设计 OR hardware OR 硬件) when:7d"
     }
   ],
   "note": "修改查询后运行 node scripts/maker-search-config.ts，再运行 seed；已存在信源需在后台更新或运行配置脚本 --sync。"
