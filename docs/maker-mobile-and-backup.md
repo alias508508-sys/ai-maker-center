@@ -10,4 +10,4 @@
 
 恢复密钥在服务器 `/root/maker-backup-recovery.key`，本地副本在项目 `.data/server-backups/maker-backup-recovery.key`，权限 600。密钥须独立保管，不上传到备份包所在网盘。恢复时先解密、核对包内 SHA256SUMS，再恢复 PostgreSQL 和项目/数据卷及运维配置。2026-10-04 已完成一次解密、各文件校验及独立临时数据库恢复测试；未覆盖实际灾难后的整机重装测试。
 
-Codex 已设置每日北京时间 04:30 同步最新加密包和校验文件至 Google Drive。此次网盘创建文件夹操作返回 ACCESS_TOKEN_SCOPE_INSUFFICIENT，尚未上传任何备份，需要重新授权 Google Drive 写入权限。此同步依赖电脑上的 Codex 可运行；服务器本地备份独立持续。上传后须读取网盘元数据确认，并记录文件 ID 防止重复上传。不要上传恢复密钥、SSH 私钥或未加密配置。
+Codex 已设置每日北京时间 04:30 同步最新加密包和校验文件至 Google Drive。2026-10-04 重新授权后已成功上传完整加密备份及 SHA256 校验文件，读取元数据确认网盘大小为 24,296,979 字节，与本地一致；文件夹为 https://drive.google.com/drive/folders/1esznEEKeLsM89WWfJ_JPfVKUZhOb5VWs 。此同步依赖电脑上的 Codex 可运行；服务器本地备份独立持续。上传后须读取网盘元数据确认，并记录文件 ID 防止重复上传。不要上传恢复密钥、SSH 私钥或未加密配置。
