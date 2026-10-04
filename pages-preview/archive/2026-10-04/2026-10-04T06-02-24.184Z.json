@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-10-04T06:02:24.184Z",
+  "date": "2026-10-04",
+  "timezone": "Asia/Shanghai",
+  "kind": "published-batch",
+  "items": [
+    {
+      "url": "https://news.google.com/rss/articles/CBMi2wRBVV95cUxOODBFb0l0d1NxQkJRdXFkSWhfRHV4OHU3OVRQaS1kcEpJMUZrb0dha1JRZWl0bHdJclNWNFZiRkZhdWdlV3daX2FCSHQxeFhtUTY2OXhPU2VDbTZrRWVmalB4dEdQUTUwa0sxWF9HLVBWZlJPNHhuMGVORXhkejl6MkgwS0dZXzNXQWhDOURfWFRvZ1dTYjIwUzZiQlBwbDRkSExYUXNQS3FtMjJsVy1xemY3YjdSUUthVmpLYkNnYVdYMXMyakNIOXdlMmlGcnBYbm1ZWXpXMWhOc3RuMV9YRXl5WENnRUNLdVNXUHVYN0tPbDVuclZWUTJGNFpIbGlHWnp0R3ZPX2lOU2FXbzRmaVBWQ3dVNWNaUHB6eV9Gelh1cVNDUldxR2ktRVA1YXZHVUYtNmxyeU9fenA0eF9CeWRtMGJOeG82M1prNjhXQ0Y3SGk1NmNnaW1LRlVyNnF4M2tQNGtwdEp3dklHSG1jRDhCRm1VOVNWVzI3QTBORGVidnpJZlFmUm4waHl5dENTVDRQakJ4TjU5Y1ZlMVJKZU1EX1pDVjNWS0lpbmk3VmQ0WWdmYzJ0R1gxWmVYdGtzMEJ5MV8weFFLcXJOUmhFYW9SRXh0SUFuX2Q5X1VSMjZDYUQtVE0tY1FXSVBMME1Yd01rM3FaRGVkSDkyUUFkRUJsTGg5RjltNFdKdnVsdm1CanRKY2JGUU1KOUxuOEFTZ0VCLUJBcDhzRDFpZTlfNXpISEd2MkNxZC1Xc0ZVbWZCRjBjeXVrR0VfQXhzWHllMThsRzYtelZaTEU?oc=5",
+      "title": "Meta 开源 Muse Gadgets，让全球开发者自己「造 AI 外设」",
+      "summary": "Meta 开源 Muse Gadgets，允许全球开发者自行打造 AI 外设。原文未披露模型版本、参数规模、benchmark 分数、价格或可用性等具体细节。",
+      "category": "ai-products",
+      "tags": [],
+      "reason": "",
+      "sourceName": "主题检索 · AI 创客与教育硬件",
+      "score": 42,
+      "origin": "model",
+      "coverChecked": true
+    },
+    {
+      "url": "https://www.designboom.com/art/3d-printed-concrete-sculptures-classical-fragments-sci-fi-forms-frieze-sculpture-matyas-chochola/",
+      "title": "Matyáš Chochola 在 Frieze Sculpture 2026 展出三件 3D 打印混凝土雕塑",
+      "summary": "捷克艺术家 Matyáš Chochola 在伦敦 Frieze Sculpture 2026 展出 BRUTALIST、METEOR 和 MACE II 三件 3D 打印混凝土雕塑，展至 2026 年 11 月 1 日。",
+      "category": "industry",
+      "tags": [],
+      "reason": "",
+      "sourceName": "designboom",
+      "score": 38,
+      "origin": "model",
+      "cover": "assets/covers/4d6b7a750a5ab6eb.webp",
+      "coverSource": "https://www.designboom.com/twitterimages/uploads/2026/10/three-3D-printed-concrete-sculptures-matyas-chochola-frieze-designboom-1200-1.jpg",
+      "coverChecked": true
+    },
+    {
+      "url": "https://blog.arduino.cc/2026/10/01/this-mouse-droid-knows-how-to-party/",
+      "title": "Arduino 打造的 MSE-6 老鼠机器人：会自主导航，还有狂欢模式",
+      "summary": "创客 Cass（Chaos Theory）用 Arduino UNO Rev3 打造了一台可自主导航的星球大战 MSE-6 老鼠机器人，具备闪烁灯光、涂鸦涂装和狂欢模式。该机器人由 L298N 驱动双电机，采用 7.4V 锂电池组配合降压转换器供电至 5V，并用超声波传感器避障、DFPlayer Mini MP3 模块播放音乐、5mm 红色 LED 阵列提供灯光效果。",
+      "category": "industry",
+      "tags": [],
+      "reason": "",
+      "sourceName": "Arduino · AI 创客硬件",
+      "score": 22,
+      "origin": "model",
+      "cover": "assets/covers/0688a73b7ab4f7de.webp",
+      "coverSource": "https://blog.arduino.cc/wp-content/uploads/2026/10/91519ffe-2a81-4d02-b8a6-9ef317fc480a-scaled.jpg",
+      "coverChecked": true
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE4xdjU5R2VIOFA1TnR4aHd0eGlhN3ZIaFUxVTBPeTZNRnBWV1JFOEVMcGZ5Uy0yLUJjd01rTWRzcWEydmYyYThZR2piM0p3R3hJTTRRMmNyNE1vMFVMS1dlZVI3WHVTUUxDbHhJ?oc=5",
+      "title": "西瓜创客获颁 IOAI 中国区 CAICP“金牌认证服务中心”",
+      "summary": "西瓜创客获颁 IOAI 中国区 CAICP“金牌认证服务中心”。该认证由 IOAI 中国区相关方授予，具体授权范围与后续服务内容尚未在报道中披露。",
+      "category": "industry",
+      "tags": [],
+      "reason": "",
+      "sourceName": "主题检索 · 创新案例",
+      "score": 12,
+      "origin": "model",
+      "coverChecked": true
+    }
+  ]
+}
