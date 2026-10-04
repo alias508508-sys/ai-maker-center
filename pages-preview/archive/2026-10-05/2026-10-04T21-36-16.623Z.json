@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-10-04T21:36:16.623Z",
+  "date": "2026-10-05",
+  "timezone": "Asia/Shanghai",
+  "kind": "published-batch",
+  "items": [
+    {
+      "url": "https://dub.washington.edu/posts/2026/chi2026papers.html",
+      "title": "华盛顿大学 DUB 在 CHI 2026 发表 68 篇论文，4 篇获最佳论文奖",
+      "summary": "华盛顿大学 DUB 在 CHI 2026 贡献 68 篇论文与期刊文章，其中 4 篇入选最佳论文奖（投稿前 1%），10 篇获最佳论文荣誉提名（前 5%），来自 11 个校内项目。",
+      "category": "paper",
+      "sourceName": "UW DUB Weekly",
+      "score": 22,
+      "reason": "",
+      "origin": "model",
+      "tags": [],
+      "cover": "assets/covers/63d62364df140d51.webp",
+      "coverSource": "https://dub.washington.edu/images/preview_logo.png",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
+    },
+    {
+      "url": "https://interactiondesign.zhdk.ch/news/",
+      "title": "ZHdK 交互设计专业 2026 毕业设计项目公布",
+      "summary": "苏黎世艺术大学（ZHdK）交互设计专业公布 2026 届毕业设计项目，并同步更新了新闻、活动与会议信息。",
+      "category": "tip",
+      "tags": [],
+      "reason": "",
+      "sourceName": "ZHdK · interactiondesign.zhdk.ch",
+      "score": 8,
+      "origin": "model",
+      "cover": "assets/covers/a95491e67a955611.webp",
+      "coverSource": "https://interactiondesign.zhdk.ch/site/assets/files/11201/zhdk-interaction-design-ye1sty2o.1280x0.png",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
+    },
+    {
+      "url": "https://www.ied.edu/projects/biblioteche-di-roma-designing-child-centered-libraries",
+      "title": "与 Biblioteche di Roma 合作：Design for Children 硕士生从儿童视角重新设计儿童图书馆",
+      "summary": "Design for Children 硕士课程学生在建筑师 Giovanni Fumagalli 带领下与 Biblioteche di Roma 合作，从儿童视角和尺度重新设计儿童图书馆，将比例、动线、家具与图书陈列作为统一空间系统。项目借鉴蒙台梭利\"预备环境\"原则，打造儿童可自主移动和选择的清晰空间，兼顾专注、探索与社交，最终把儿童图书馆重新诠释为一座\"教育景观\"。",
+      "category": "tip",
+      "tags": [],
+      "reason": "",
+      "sourceName": "IED · IED Projects 学生项目",
+      "score": 22,
+      "origin": "model",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
+    },
+    {
+      "url": "https://www.media.mit.edu/projects/symbiotic-virtuosity/overview/",
+      "title": "MIT Media Lab 与 Jordan Rudess 合作开发 AI 增强乐器，探索「共生技艺」",
+      "summary": "MIT Media Lab 正与格莱美获奖键盘手 Jordan Rudess 合作开发一款 AI 增强乐器，通过个性化生成式 AI 模型学习艺术家风格，实现实时音乐交互以增强现场演出。项目提出「共生技艺（Symbiotic Virtuosity）」概念，聚焦可在演出中动态交互的可控 AI 系统，以及增强乐手在舞台上的呈现方式。",
+      "category": "hardware",
+      "sourceName": "Responsive Environments",
+      "score": 38,
+      "reason": "",
+      "origin": "model",
+      "tags": [],
+      "cover": "assets/covers/d662e3af8e34bad5.webp",
+      "coverSource": "https://dam-prod.media.mit.edu/thumb/2024/04/18/jordanPerformancePic.jpg.1400x1400.jpg",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1wckhyQ2VDTGd2Rjl5a0hrOFo1V0lVd0NRY0VlMmFCTTZxeThMbWpwTnJxUHdjOE1kNWs2R0lIN3ViYmpQQ3p0eTNhX2lmS3BsNmVDY1V2Y3RGYjFGQ3lBSmpPWGZ4QQ?oc=5",
+      "title": "工业文化创新发展大赛·2026人工智能未来设计赛赛程发布",
+      "summary": "工业文化创新发展大赛·2026人工智能未来设计赛赛程已发布，由每日经济新闻公布。赛事聚焦人工智能未来设计方向，具体赛程安排以官方发布内容为准。",
+      "category": "industry",
+      "tags": [],
+      "reason": "",
+      "sourceName": "主题检索 · 创新案例",
+      "score": 10,
+      "origin": "model",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
+    }
+  ]
+}

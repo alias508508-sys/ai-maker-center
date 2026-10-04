@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-04T14:23:23.460Z",
-  "runs": 11,
+  "updatedAt": "2026-10-04T21:36:16.623Z",
+  "runs": 12,
   "seen": [
     "https://news.mit.edu/2026/instructmesh-tool-lets-users-repair-ai-3d-models-then-fabricate-them-1001",
     "https://news.mit.edu/2026/3-questions-new-resource-empower-young-entrepreneurs-1002",
@@ -51,17 +51,21 @@
     "https://www.ri.cmu.edu/project/agile-and-dynamic-interactions-for-mobile-manipulation/",
     "https://news.google.com/rss/articles/CBMimAFBVV95cUxQajJ0c0xEak45ZXRvd3hMbm0zYUtWVVFNeGZwSWJIdmtJR0VIWGpWTDlRbG94c3FNUXJsXzMwXzY1MU5YYzE1b3BUeEJGR3E2cnBoSzlReDhmQUlVMEJjMGwzTmJiNzBRX2ZnelFLVjFHcWYya2NMV2NIaGdkRW51d2hTdHdOb2kzbnJyRnk2cDBmRUhDZHpISQ?oc=5",
     "https://rsl.ethz.ch/the-lab/news/2026/09/european-ai-powered-robotics-takes-centre-stage-at-the-european-parliament-eurobin.html",
-    "https://www.media.mit.edu/projects/fibercircuits/overview/"
+    "https://www.media.mit.edu/projects/fibercircuits/overview/",
+    "https://news.google.com/rss/articles/CBMiQ0FVX3lxTFA0QkZQRlE2SGdaOHNwU2xILUFaQ3VsWTZZN1dJNllZNFlxdlVqamozYVNGYmFHTGFYSi1Dd2w2a2JqREk?oc=5",
+    "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1wckhyQ2VDTGd2Rjl5a0hrOFo1V0lVd0NRY0VlMmFCTTZxeThMbWpwTnJxUHdjOE1kNWs2R0lIN3ViYmpQQ3p0eTNhX2lmS3BsNmVDY1V2Y3RGYjFGQ3lBSmpPWGZ4QQ?oc=5",
+    "https://news.google.com/rss/articles/CBMib0FVX3lxTE03SWtJNVNXaWFsS3A5eXBsellVYVo3bFZvZ0pVV3dURG8tcy1wNUxnR1MxZHdmSThiMjNBTWgyNXBTSzhkSm1WUERZQVBLVk9hUzFKR2x4bU1PMXRYeG5MdmE2bnhyRjIzZGFxYXZibw?oc=5",
+    "https://rsl.ethz.ch/the-lab/news/2026/07/congratulations-to-enes-rahimi-on-successfully-completing-his-apprenticeship.html",
+    "https://www.media.mit.edu/projects/symbiotic-virtuosity/overview/",
+    "https://www.ied.edu/projects/biblioteche-di-roma-designing-child-centered-libraries",
+    "https://interactiondesign.zhdk.ch/news/",
+    "https://dub.washington.edu/posts/2026/chi2026papers.html",
+    "https://fcai.fi/news/2026/4/29/faster-ai-systems-that-are-also-privacy-preservingaward-for-research-on-optimizing-privacy-in-deep-learning"
   ],
   "sources": [
     {
-      "name": "主题检索 · AI 家居设备",
-      "count": 30,
-      "status": "ok"
-    },
-    {
       "name": "主题检索 · AI 创客与教育硬件",
-      "count": 13,
+      "count": 14,
       "status": "ok"
     },
     {
@@ -71,7 +75,7 @@
     },
     {
       "name": "主题检索 · AI 眼镜与可穿戴",
-      "count": 28,
+      "count": 33,
       "status": "ok"
     },
     {
@@ -86,7 +90,7 @@
     },
     {
       "name": "主题检索 · 创新案例",
-      "count": 38,
+      "count": 37,
       "status": "ok"
     },
     {
@@ -101,8 +105,8 @@
     },
     {
       "name": "CMU Robotics Institute Projects",
-      "count": 78,
-      "status": "ok"
+      "count": 0,
+      "status": "unavailable"
     },
     {
       "name": "高校学生 · AI硬件与可穿戴创新",
@@ -301,8 +305,8 @@
     },
     {
       "name": "Arduino · AI 创客硬件",
-      "count": 0,
-      "status": "unavailable"
+      "count": 10,
+      "status": "ok"
     },
     {
       "name": "designboom",
@@ -326,8 +330,8 @@
     },
     {
       "name": "MIT News · AI",
-      "count": 0,
-      "status": "unavailable"
+      "count": 50,
+      "status": "ok"
     },
     {
       "name": "NVIDIA Blog",
@@ -348,9 +352,88 @@
       "name": "主题检索 · AI 硬件",
       "count": 100,
       "status": "ok"
+    },
+    {
+      "name": "主题检索 · AI 家居设备",
+      "count": 35,
+      "status": "ok"
     }
   ],
   "items": [
+    {
+      "url": "https://dub.washington.edu/posts/2026/chi2026papers.html",
+      "title": "华盛顿大学 DUB 在 CHI 2026 发表 68 篇论文，4 篇获最佳论文奖",
+      "summary": "华盛顿大学 DUB 在 CHI 2026 贡献 68 篇论文与期刊文章，其中 4 篇入选最佳论文奖（投稿前 1%），10 篇获最佳论文荣誉提名（前 5%），来自 11 个校内项目。",
+      "category": "paper",
+      "sourceName": "UW DUB Weekly",
+      "score": 22,
+      "reason": "",
+      "origin": "model",
+      "tags": [],
+      "cover": "assets/covers/63d62364df140d51.webp",
+      "coverSource": "https://dub.washington.edu/images/preview_logo.png",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
+    },
+    {
+      "url": "https://interactiondesign.zhdk.ch/news/",
+      "title": "ZHdK 交互设计专业 2026 毕业设计项目公布",
+      "summary": "苏黎世艺术大学（ZHdK）交互设计专业公布 2026 届毕业设计项目，并同步更新了新闻、活动与会议信息。",
+      "category": "tip",
+      "tags": [],
+      "reason": "",
+      "sourceName": "ZHdK · interactiondesign.zhdk.ch",
+      "score": 8,
+      "origin": "model",
+      "cover": "assets/covers/a95491e67a955611.webp",
+      "coverSource": "https://interactiondesign.zhdk.ch/site/assets/files/11201/zhdk-interaction-design-ye1sty2o.1280x0.png",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
+    },
+    {
+      "url": "https://www.ied.edu/projects/biblioteche-di-roma-designing-child-centered-libraries",
+      "title": "与 Biblioteche di Roma 合作：Design for Children 硕士生从儿童视角重新设计儿童图书馆",
+      "summary": "Design for Children 硕士课程学生在建筑师 Giovanni Fumagalli 带领下与 Biblioteche di Roma 合作，从儿童视角和尺度重新设计儿童图书馆，将比例、动线、家具与图书陈列作为统一空间系统。项目借鉴蒙台梭利\"预备环境\"原则，打造儿童可自主移动和选择的清晰空间，兼顾专注、探索与社交，最终把儿童图书馆重新诠释为一座\"教育景观\"。",
+      "category": "tip",
+      "tags": [],
+      "reason": "",
+      "sourceName": "IED · IED Projects 学生项目",
+      "score": 22,
+      "origin": "model",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
+    },
+    {
+      "url": "https://www.media.mit.edu/projects/symbiotic-virtuosity/overview/",
+      "title": "MIT Media Lab 与 Jordan Rudess 合作开发 AI 增强乐器，探索「共生技艺」",
+      "summary": "MIT Media Lab 正与格莱美获奖键盘手 Jordan Rudess 合作开发一款 AI 增强乐器，通过个性化生成式 AI 模型学习艺术家风格，实现实时音乐交互以增强现场演出。项目提出「共生技艺（Symbiotic Virtuosity）」概念，聚焦可在演出中动态交互的可控 AI 系统，以及增强乐手在舞台上的呈现方式。",
+      "category": "hardware",
+      "sourceName": "Responsive Environments",
+      "score": 38,
+      "reason": "",
+      "origin": "model",
+      "tags": [],
+      "cover": "assets/covers/d662e3af8e34bad5.webp",
+      "coverSource": "https://dam-prod.media.mit.edu/thumb/2024/04/18/jordanPerformancePic.jpg.1400x1400.jpg",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1wckhyQ2VDTGd2Rjl5a0hrOFo1V0lVd0NRY0VlMmFCTTZxeThMbWpwTnJxUHdjOE1kNWs2R0lIN3ViYmpQQ3p0eTNhX2lmS3BsNmVDY1V2Y3RGYjFGQ3lBSmpPWGZ4QQ?oc=5",
+      "title": "工业文化创新发展大赛·2026人工智能未来设计赛赛程发布",
+      "summary": "工业文化创新发展大赛·2026人工智能未来设计赛赛程已发布，由每日经济新闻公布。赛事聚焦人工智能未来设计方向，具体赛程安排以官方发布内容为准。",
+      "category": "industry",
+      "tags": [],
+      "reason": "",
+      "sourceName": "主题检索 · 创新案例",
+      "score": 10,
+      "origin": "model",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
+    },
     {
       "url": "https://github.com/parsonsdt/critical-computation-2023",
       "title": "帕森斯设计学院 Critical Computation 课程网站",
@@ -725,7 +808,9 @@
       "sourceName": "Columbia · GSAPP / CS / Computational Design Lab",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://www.tudelft.nl/en/2026/ide/july/three-veni-grants-awarded-to-ide-researchers",
@@ -735,7 +820,12 @@
       "sourceName": "TU Delft · IDE Digital 研究主题",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/cd85b4b96794b650.webp",
+      "coverSource": "https://t.e7096c671.entry.domains/SM-XnbRewV3ruC9xgtXXxH8XzjU=/0x50:555x784/555x734/filters:strip_exif()/https%3A%2F%2Ffilelist.tudelft.nl%2FIO%2FActueel%2FNieuwsberichten%2F2026%2F19%2520-%25202026%2FNWO%2520logo%2520-%2520RGB_wit_rondom_2.jpg%3Fhash%3Dd29c137d30",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://epfl-ecal-lab.ch/2026/08/mountresilience-countdown-to-a-new-water-management-platform/",
@@ -745,7 +835,12 @@
       "sourceName": "EPFL · EPFL+ECAL Lab",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/0b3f8e585a3ac3bd.webp",
+      "coverSource": "https://backend.epfl-ecal-lab.ch/wp-content/uploads/2023/11/Mountis_Teaser_newsletter_260817.jpg",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://epfl-ecal-lab.ch/2026/09/evoka-ii-public-opening-during-the-european-heritage-days/",
@@ -755,7 +850,12 @@
       "sourceName": "EPFL · EPFL+ECAL Lab",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/78e8aee917cfeff9.webp",
+      "coverSource": "https://backend.epfl-ecal-lab.ch/wp-content/uploads/2026/09/EPFLECALLab_Evoka2_DanielaTonatiuh_07_web.jpg",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://www.media.mit.edu/projects/comparing-interaction-strategies-for-ai-systems-in-a-learning-context-using-brain-sensing/overview/",
@@ -765,7 +865,12 @@
       "sourceName": "Fluid Interfaces",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/df6a2af3c711b468.webp",
+      "coverSource": "https://dam-prod.media.mit.edu/thumb/2026/08/31/screenshot_mode3_explosion.png.1400x1400.png",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://www.media.mit.edu/projects/rlx-a-unified-multi-backend-tensor-compiler-and-distributed-runtime-in-rust/overview/",
@@ -775,7 +880,12 @@
       "sourceName": "Fluid Interfaces",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/1b55122163763a0b.webp",
+      "coverSource": "https://dam-prod.media.mit.edu/thumb/2026/08/31/RLX.png.1400x1400.png",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://www.media.mit.edu/projects/allegory-of-the-cave/overview/",
@@ -785,7 +895,12 @@
       "sourceName": "Fluid Interfaces",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/c91fb93b98fd04f1.webp",
+      "coverSource": "https://dam-prod.media.mit.edu/thumb/2026/09/15/Group%2041.png.1400x1400.png",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://www.rca.ac.uk/news-and-events/news/doctoral-spotlight-postgraduate-research-excellence-and-community-at-the-rca/",
@@ -795,7 +910,12 @@
       "sourceName": "Royal College of Art · School of Design / Design Products / IDE",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/0106031d8a36493e.webp",
+      "coverSource": "https://rca-media2.rca.ac.uk/images/Claire_Van_Rhyn_Communication_Re.2e16d0ba.fill-1200x1200.png",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://www.rca.ac.uk/news-and-events/news/royal-college-of-art-launches-innovative-new-academic-programmes-for-202728/",
@@ -805,7 +925,12 @@
       "sourceName": "Royal College of Art · School of Design / Design Products / IDE",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/b8348e514df03fac.webp",
+      "coverSource": "https://rca-media2.rca.ac.uk/images/Visitor_interacting_with_E-llusi.2e16d0ba.fill-1200x1200.jpg",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://hcii.cmu.edu/news/rathje-sage-emerging-scholar",
@@ -815,7 +940,9 @@
       "sourceName": "HCII News & Events",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://hcii.cmu.edu/news/500m-gift-fuel-cmu-computer-science",
@@ -825,7 +952,9 @@
       "sourceName": "HCII News & Events",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://www.aalto.fi/en/news/the-journey-of-a-17th-century-shipwreck-continues-as-a-unique-knitted-dress",
@@ -835,7 +964,9 @@
       "sourceName": "Aalto · Designs for a Cooler Planet",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://www.aalto.fi/en/news/how-to-search-for-a-material-that-does-not-yet-exist-researchers-are-looking-for-a-room-temperature",
@@ -845,7 +976,9 @@
       "sourceName": "Aalto · Designs for a Cooler Planet",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://siebelschool.illinois.edu/news/luyi-xing-nsf-grant-ecma",
@@ -855,7 +988,9 @@
       "sourceName": "UIUC · Siebel School / Art + Design / Siebel Center for Design",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://www.rit.edu/computing/news/rit-students-across-disciplines-create-peacebuilding-video-game",
@@ -865,7 +1000,9 @@
       "sourceName": "RIT · Industrial Design BFA / Golisano Computing",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://www.rit.edu/computing/news/rit-student-wins-hackmit-low-cost-medicine-testing-device",
@@ -875,7 +1012,9 @@
       "sourceName": "RIT · Industrial Design BFA / Golisano Computing",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://www.imperial.ac.uk/news/articles/engineering/computing/2026/imperial-researcher-awarded-royal-society-career-development-fellowship-for-culturally-aligned-ai-research/",
@@ -885,7 +1024,12 @@
       "sourceName": "Imperial College London · Dyson School of Design Engineering / Computing",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/9e171d19c679c079.webp",
+      "coverSource": "https://www.imperial.ac.uk/news/media/news-images/3000x2000-main-article-images/260616_Alumni_Awards_DG_144(1).jpg",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://www.imperial.ac.uk/news/articles/engineering/computing/2026/",
@@ -895,7 +1039,12 @@
       "sourceName": "Imperial College London · Dyson School of Design Engineering / Computing",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/0863a736de683aa3.webp",
+      "coverSource": "https://www.imperial.ac.uk/news/media/news-images/3000x2000-main-article-images/heat-kernel-textures-v2.jpg",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://design.zhdk.ch/news/was-bilder-wissen-9685/",
@@ -905,7 +1054,12 @@
       "sourceName": "ZHdK · design.zhdk.ch 作品平台",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/479e5f73ec85f878.webp",
+      "coverSource": "https://www.zhdk.ch/file/live/68/6829f7c8dea901b5d124b5d5738afc42c9a086ff/zett_19_75_j_kv_key.jpg",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://github.com/ethz-asl/autolabel",
@@ -915,7 +1069,12 @@
       "sourceName": "ETH Zürich · ethz-asl",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/99f2a99e200dca84.webp",
+      "coverSource": "https://opengraph.githubassets.com/e9ffcf75ebc4d0a76a0523d955aed9bfa7bd7f0665a6dbfa29c8ffd4c4fe5a28/ethz-asl/autolabel",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://github.com/ethz-asl/versavis",
@@ -1418,16 +1577,6 @@
       "origin": "model"
     },
     {
-      "url": "https://dub.washington.edu/posts/2026/chi2026papers.html",
-      "title": "华盛顿大学DUB在CHI 2026展示68篇HCI与设计研究",
-      "summary": "华盛顿大学HCI与设计社区DUB在CHI 2026上贡献68篇论文和期刊文章，其中4篇获最佳论文奖、10篇获荣誉提名，覆盖11个不同项目。文章列举了多项研究，包括AI智能体协同规划、AI在临床肿瘤委员会协作中的应用、心理健康临床医生多模态数据叙事仪表板、消费级AI产品隐私风险、无线耳机视觉智能、LLM策略协同原型设计、生成式AI对教师专业实践的影响等。",
-      "category": "tip",
-      "sourceName": "UW DUB Weekly",
-      "score": null,
-      "reason": "",
-      "origin": "model"
-    },
-    {
       "url": "https://interactiondesign.zhdk.ch/news/amphibious-humanity-iad-at-ars-electronica-09-13-september-2026/",
       "title": "Amphibious Humanity：将海洋沉浸体验转化为陆地互动装置",
       "summary": "苏黎世艺术大学交互设计硕士项目与瑞士国家科学基金会“Interfacing the Ocean”研究项目在2026年林茨电子艺术节展出“Amphibious Humanity”。五个互动项目把在地中海的水下个人沉浸体验转译到陆地场景：Permeable以雾气消解水陆边界；Turbid Encounters通过面罩将周围身体与物体的运动转化为振动；A Bubble呈现悬浮动态雕塑并融入克罗地亚Valsaline湾的现场录音、体渲染与实时浮标数据；Aquaoism构建一个由气候危机与资源无限开采塑造的未来中的思辨科学宗教，以活体祭坛汇聚动物、微生物与环境过程，将非人类智能视为新智慧来源；视频论文Attunement to the Ocean记录设计师、艺术家、生物学家与人类学家在水下工作坊中调适身体以感知海洋生态的实践。",
@@ -1451,16 +1600,6 @@
       "url": "https://www.media.mit.edu/projects/hexsense/overview/",
       "title": "HexSense：可弹射部署的模块化传感器节点",
       "summary": "HexSense 是 MIT Media Lab 研发的一种可弹射部署到目标区域的传感器节点，采用模块化设计，可搭载不同传感器载荷。落地后节点能自动立起，使主体离地以保证无线连接的良好视线。2024 年 7 月，一个 HexSense 节点被部署到北极斯瓦尔巴地区，搭载光谱颜色传感器、温度传感器和湿度传感器等多种环境传感器，旨在帮助人们从难以到达但可能蕴含有趣数据的区域采集数据。",
-      "category": "hardware",
-      "sourceName": "Responsive Environments",
-      "score": null,
-      "reason": "",
-      "origin": "model"
-    },
-    {
-      "url": "https://www.media.mit.edu/projects/symbiotic-virtuosity/overview/",
-      "title": "MIT Media Lab 开发 AI 增强乐器：探索人机共生演奏",
-      "summary": "MIT Media Lab 的“共生精湛技艺”项目与格莱美获奖键盘手 Jordan Rudess 合作，开发一种新型 AI 增强乐器，用于现场音乐表演。项目通过构建个性化生成式 AI 模型来反映艺术家独特风格，并实现响应式实时音乐交互，旨在重新定义人类创造力与现场表演的边界，同时关注可控 AI 系统及增强音乐家在舞台上的呈现方式。",
       "category": "hardware",
       "sourceName": "Responsive Environments",
       "score": null,
