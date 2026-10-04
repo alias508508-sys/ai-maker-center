@@ -26,7 +26,9 @@ try {
     const sourceId = input.kind === 'article' ? 'maker-owner' : 'maker-links';
     await sql`INSERT INTO sources (id,name,kind,tier,site_fulltext,syndicate_fulltext,enabled) VALUES (${sourceId},${input.kind==='article'?'站主原创':'个人提交'},'external','T2',${input.kind==='article'},false,false) ON CONFLICT (id) DO NOTHING`;
     const url = input.kind === 'article' ? `${config.siteUrl.replace(/\/$/,'')}/posts/${jobId}.html` : input.url;
-    const candidate = input.kind === 'article' ? {url,title:input.title,bodyText:input.body,bodyStatus:'ok' as const} : await submittedCandidate(url);
+    // Budget-paused jobs reuse the saved text instead of fetching the same site every minute.
+    const [stored] = job.article_id ? await sql`SELECT title,body_text FROM articles WHERE id=${job.article_id}` : [];
+    const candidate = input.kind === 'article' ? {url,title:input.title,bodyText:input.body,bodyStatus:'ok' as const} : stored?.body_text ? {url,title:stored.title,bodyText:stored.body_text,bodyStatus:'ok' as const} : await submittedCandidate(url);
     if (!candidate?.bodyText) throw new Error('无法读取链接正文（可能被网站限制）。请改用“自己写文章”补充内容后提交。');
     const material = await upsertMaterial({sourceId,url,title:candidate.title,bodyText:candidate.bodyText,bodyStatus:'ok',via:'ingest'});
     await sql`UPDATE maker_submissions SET article_id=${material.articleId},updated_at=now() WHERE id=${jobId}`;
