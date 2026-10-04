@@ -1,0 +1,5 @@
+#!/bin/bash
+set -euo pipefail
+docker run --rm -v /etc/letsencrypt:/etc/letsencrypt -v /var/lib/letsencrypt:/var/lib/letsencrypt -v /home/admin/ai-maker-center/pages-preview:/webroot certbot/certbot:v5.4.0 renew --quiet
+docker exec maker-preview nginx -t
+docker exec maker-preview nginx -s reload

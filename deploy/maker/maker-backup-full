@@ -1,0 +1,30 @@
+#!/bin/bash
+set -euo pipefail
+umask 077
+exec 9>/run/maker-collect.lock
+flock -w 1200 9
+cd /home/admin/ai-maker-center
+backup_stamp=$(date -u +%Y%m%dT%H%M%SZ)
+backup_dir=/root/maker-backups
+mkdir -p "$backup_dir"
+chmod 700 "$backup_dir"
+if [ ! -s /root/maker-backup-recovery.key ]; then
+  openssl rand -hex 32 >/root/maker-backup-recovery.key
+fi
+chmod 600 /root/maker-backup-recovery.key
+work=$(mktemp -d "$backup_dir/.snapshot-XXXXXX")
+trap 'rm -rf "$work"' EXIT
+docker compose exec -T db pg_dump -U aihot -d aihot -Fc >"$work/database.dump"
+docker compose exec -T db pg_restore -l <"$work/database.dump" >/dev/null
+tar --exclude='./node_modules' --exclude='*/node_modules' --exclude='./.git' -czf "$work/project.tar.gz" .
+git -c safe.directory=/home/admin/ai-maker-center bundle create "$work/history.bundle" --all
+docker compose exec -T api tar -czf - -C /data . >"$work/app-data.tar.gz"
+tar -czf "$work/server-config.tar.gz" /etc/letsencrypt /etc/systemd/system/maker-* /usr/local/sbin/maker-* 2>"$work/config-tar.log"
+printf '%s\n' 'AI maker full snapshot. Restore database.dump into PostgreSQL 17; unpack project.tar.gz and app-data.tar.gz, then restore server-config.tar.gz and run Docker Compose. Recovery key is stored separately; never upload it with this archive.' >"$work/RESTORE.txt"
+(cd "$work" && sha256sum database.dump project.tar.gz history.bundle app-data.tar.gz server-config.tar.gz >SHA256SUMS)
+target="$backup_dir/full-$backup_stamp.tar.gz.gpg"
+tar -czf - -C "$work" . | gpg --batch --yes --pinentry-mode loopback --passphrase-file /root/maker-backup-recovery.key --symmetric --cipher-algo AES256 --output "$target.partial"
+mv "$target.partial" "$target"
+gpg --batch --quiet --pinentry-mode loopback --passphrase-file /root/maker-backup-recovery.key --decrypt "$target" | tar -tzf - >/dev/null
+sha256sum "$target" >"$target.sha256"
+printf 'Full encrypted backup verified: %s\n' "$target"

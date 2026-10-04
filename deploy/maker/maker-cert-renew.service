@@ -1,0 +1,6 @@
+[Unit]
+Description=Renew AI maker HTTPS IP certificate
+After=docker.service
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/maker-cert-renew
