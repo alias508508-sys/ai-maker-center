@@ -23,6 +23,7 @@ const sources = submittedUrl ? [] : await sql<SourceRow[]>`SELECT * FROM sources
 // GitHub's temporary database gets a per-batch ceiling; the server keeps administrator budgets.
 if (process.env.GITHUB_ACTIONS === 'true') await sql`UPDATE budgets SET per_minute=30, per_hour=30, per_day=30 WHERE service IN ('llm','deepseek')`;
 let processed = 0, fetched = 0;
+let detailReads = 0;
 const status: Array<{name:string;count:number;status:string}> = [];
 const pools: Array<{source:SourceRow;candidates:Candidate[]}> = [];
 // 轮换起始信源，避免总是被第一个信源占满。
@@ -53,7 +54,14 @@ for (const {source,candidate} of batch) {
 
     if (processed >= 12) break;
     if (!submittedUrl && seen.has(candidate.url)) continue;
-    const body = candidate.bodyText || candidate.excerpt;
+    let body = candidate.bodyText || candidate.excerpt;
+    // 网页列表只提供标题与链接；读取原文后再交给模型，限制每批的详情请求。
+    if ((!body || body.length < 30) && source.kind === 'web_list' && detailReads < 12) {
+      detailReads++;
+      const detail = await submittedCandidate(candidate.url);
+      if (detail) Object.assign(candidate, detail);
+      body = candidate.bodyText || candidate.excerpt;
+    }
     // 只依据公开订阅内容；标题不足以生成可信摘要。
     if (!body || body.length < 30) continue;
     const material = await upsertMaterial({ ...candidate, bodyText: body, bodyStatus: 'unconfirmed', sourceId: source.id, via: 'fetch' });
