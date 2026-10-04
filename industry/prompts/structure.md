@@ -2,6 +2,8 @@
 
 {{> safety}}
 
+新内容只能归入 hardware、ai-products、industry、tip 四类。旧类别 ai-models、paper、opinion 仅供历史数据兼容，不得用于新分类。AI 教育趋势、教学研究与教学实践归 tip；智能实体与机器人归 hardware；设计工具与方法归 ai-products；其他具体 AI 创新设计案例归 industry。交叉主题按主要贡献判断，不能按信源或关键词机械归类。
+
 一、类别 category（{{categoryCount}}选一）
 {{categoryGuide}}
 

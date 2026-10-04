@@ -8,11 +8,12 @@
  * 没归上类的资料在日报里放进第一个 key 为 industry 的类别所在的节（没有就放最后一节）。
  */
 export const CATEGORIES = [
+  { key: "hardware", label: "AI 与硬件", section: "AI 与硬件", guide: "AI 机器人、智能硬件、可穿戴、传感器、边缘智能与物理交互设备；核心贡献为智能实体" },
   { key: "ai-models", label: "创作模型", section: "创作模型", guide: "与图像、视频、三维、交互设计直接相关的模型能力与使用边界" },
-  { key: "ai-products", label: "设计工具", section: "设计工具", guide: "视觉、交互、视频、三维与原型设计工具的发布、更新与具体用法" },
-  { key: "industry", label: "创新案例", section: "创新案例", guide: "有具体任务、过程、成果或证据的设计创新、创客项目与 AI 应用案例" },
+  { key: "ai-products", label: "AI与设计", section: "AI与设计", guide: "视觉、交互、视频、三维与原型设计工具的发布、更新与具体用法" },
+  { key: "industry", label: "AI创新案例", section: "AI创新案例", guide: "有具体任务、过程、成果或证据的设计创新、创客项目与 AI 应用案例" },
   { key: "paper", label: "研究前沿", section: "研究前沿", guide: "AI 与设计、人机交互、创造力、学习科学相关的论文与研究报告" },
-  { key: "tip", label: "教育实践", section: "教育实践", guide: "真实课程、教学活动、学生项目、学习效果与可复用的设计教育方法；兼收创作实践教程" },
+  { key: "tip", label: "AI教育实践", section: "AI教育实践", guide: "真实课程、教学活动、学生项目、学习效果与可复用的设计教育方法；兼收创作实践教程" },
   { key: "opinion", label: "观察与方法", section: "观察与方法", guide: "人物观点、评论、分析、访谈、现象与趋势讨论" },
 ] as const;
 

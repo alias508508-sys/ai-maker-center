@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-10-04T12:30:13.582Z",
+  "date": "2026-10-04",
+  "timezone": "Asia/Shanghai",
+  "kind": "published-batch",
+  "items": [
+    {
+      "url": "https://www.arduino.cc/education/kits/",
+      "title": "Arduino 教育套件与认证概览",
+      "summary": "Arduino 提供面向 K-12、高等教育及工业准备的教育套件与认证，涵盖机器人、科学实验、电子编程、物联网、PLC 等主题，包括 Alvik Robot、Science Kit R3、Student Kit、Science Journal、Junior Certification、Greenhouse Kit、Education Starter Kit、Science Kit Physics Lab、Explore IoT Kit、CTC GO!、Arduino Certification、PLC Starter Kit、Engineering Kit 等产品。",
+      "category": "ai-products",
+      "tags": [],
+      "sourceName": "个人提交",
+      "reason": "站主提交，直接发布；AI 整理摘要",
+      "score": null,
+      "origin": "model",
+      "coverChecked": true
+    }
+  ]
+}

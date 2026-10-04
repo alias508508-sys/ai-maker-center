@@ -9,7 +9,7 @@ export const submissionSchema = z.object({
   url: z.string().trim().max(2048).default(""),
   title: z.string().trim().max(300).default(""),
   body: z.string().trim().max(50000).default(""),
-  category: z.enum(["auto", "ai-products", "industry", "tip", "opinion"]).default("auto"),
+  category: z.enum(["auto", "hardware", "ai-products", "industry", "tip", "opinion"]).default("auto"),
   images: z.array(image).max(6).default([]),
 }).superRefine((value, ctx) => {
   if (value.kind === "article" && (!value.title || value.body.length < 20)) ctx.addIssue({ code: "custom", message: "请填写标题和至少 20 字的正文" });
