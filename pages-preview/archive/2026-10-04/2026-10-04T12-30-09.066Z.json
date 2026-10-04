@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-10-04T12:30:09.066Z",
+  "date": "2026-10-04",
+  "timezone": "Asia/Shanghai",
+  "kind": "published-batch",
+  "items": [
+    {
+      "url": "https://www.yankodesign.com/2026/10/04/4-marvel-kettlebells-for-collectors-who-actually-work-out/?utm_source=rss&utm_medium=rss&utm_campaign=4-marvel-kettlebells-for-collectors-who-actually-work-out",
+      "title": "SUPERX 与 Strict Vision Athletics 推出漫威主题壶铃系列，含蜘蛛侠、金刚狼、毒液、浩克四款",
+      "summary": "SUPERX 联合 Strict Vision Athletics 推出漫威壶铃系列，将蜘蛛侠、金刚狼、毒液、浩克四位角色铸成可用壶铃，分 30、40、50、60 lbs 四档重量，对应角色战力设定。产品提供哑光黑套装与手工上色套装两种版本，后者由单一艺术家逐件手绘、每批数量极少，已获漫威官方授权，从 SUPERX 位于田纳西州纳什维尔的总部发货。",
+      "category": "industry",
+      "tags": [],
+      "reason": "",
+      "sourceName": "Yanko Design",
+      "score": 8,
+      "origin": "model",
+      "cover": "assets/covers/7b3328a0dab229bc.webp",
+      "coverSource": "https://www.yankodesign.com/images/design_news/2026/10/4-marvel-kettlebells-for-collectors-who-actually-work-out/marvel-kettlebell-0.jpg",
+      "coverChecked": true
+    },
+    {
+      "url": "https://www.designboom.com/design/designboom-shop-drop-back-to-the-desk-with-creative-workspace-essentials/",
+      "title": "designboom shop drop：创意办公桌好物精选",
+      "summary": "designboom 推出“back to the desk”办公桌好物精选，涵盖 Peleg Design、ilsangisang、Appree、Lawa Design、Artori Design 等品牌。",
+      "category": "industry",
+      "tags": [],
+      "reason": "",
+      "sourceName": "designboom",
+      "score": 10,
+      "origin": "model",
+      "cover": "assets/covers/07012ef1937f0bcd.webp",
+      "coverSource": "https://www.designboom.com/twitterimages/uploads/2026/10/designboom-shop-drop-back-to-the-desk-1200.jpg",
+      "coverChecked": true
+    },
+    {
+      "url": "https://blog.arduino.cc/2026/09/30/how-little-does-an-ai-agent-need-and-how-cheap-can-it-get/",
+      "title": "Arduino 如何用 VENTUNO Q 与 UNO Q 降低 AI 智能体环境成本？",
+      "summary": "Arduino 提出用 VENTUNO Q 与 UNO Q 替代 Mac mini 等通用计算机，为 AI 智能体提供更廉价的运行环境。",
+      "category": "industry",
+      "tags": [],
+      "reason": "",
+      "sourceName": "Arduino · AI 创客硬件",
+      "score": 40,
+      "origin": "model",
+      "coverChecked": true
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOM0NmclVxQ3B1OUtUaE9Fam1wMXJFZ1NoYjcwVUpzdnZvVkJWaXRuRUdIVmI2RmNZcG1rZEliWDdqblhLVFg0ak4zckRORlpXU3ZsMVJlUzZtTlVlekFzRkVVYzYzR0xLc1FJXy1lWUZjYU84aGl2VjhQMUlxaGNNQk54dUFYMVBJZXR6OWlYTWpIUnpI?oc=5",
+      "title": "建设全省人工智能与机器人改革实验区，为何偏偏选择深圳龙岗？",
+      "summary": "广东省建设人工智能与机器人改革实验区，选址落在深圳龙岗。21财经就此发问：为何偏偏是龙岗。原文未展开具体依据与配套政策细节。",
+      "category": "industry",
+      "tags": [],
+      "reason": "",
+      "sourceName": "主题检索 · AI 硬件",
+      "score": 20,
+      "origin": "model",
+      "coverChecked": true
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQdGdrZUY3bW5yOXJtTFRMeE9CQVVWZ1lkNlFfTGtWTFZnQUc5c0oxY3ZiYXJBblVlWElheW1OTVhWTjZqYVpndlRiandWNW5DNXF1RlE3dEpzNXFoNTl1T19pYW10MVRnMmFBVkxVWnN5WXlWQ0s2UEIxQ1VsYTcwbU92NGloZm9jMVRHQ2o0aHNiY0dpSlg5N3Axbw?oc=5",
+      "title": "前沿设计创新奖、上海设计100+ 等奖项揭晓",
+      "summary": "前沿设计创新奖、上海设计100+ 等奖项于今日揭晓。原文未披露获奖名单、参评规模或评选标准等具体信息。",
+      "category": "industry",
+      "tags": [],
+      "reason": "",
+      "sourceName": "主题检索 · 创新案例",
+      "score": 11,
+      "origin": "model",
+      "coverChecked": true
+    }
+  ]
+}
