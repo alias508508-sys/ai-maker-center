@@ -1,0 +1,7 @@
+[Unit]
+Description=AI maker administrator submissions publisher
+After=docker.service network-online.target
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/maker-submissions
+TimeoutStartSec=25min

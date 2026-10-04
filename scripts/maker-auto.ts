@@ -20,7 +20,8 @@ const seen = new Set<string>(old.seen);
 const inputUrl = process.env.MAKER_ARTICLE_URL?.trim();
 const submittedUrl = inputUrl ? linkUrl(inputUrl) : undefined;
 const sources = submittedUrl ? [] : await sql<SourceRow[]>`SELECT * FROM sources WHERE enabled AND kind IN ('rss','web_list') ORDER BY id`;
-await sql`UPDATE budgets SET per_minute=30, per_hour=30, per_day=30 WHERE service IN ('llm','deepseek')`;
+// GitHub's temporary database gets a per-batch ceiling; the server keeps administrator budgets.
+if (process.env.GITHUB_ACTIONS === 'true') await sql`UPDATE budgets SET per_minute=30, per_hour=30, per_day=30 WHERE service IN ('llm','deepseek')`;
 let processed = 0, fetched = 0;
 const status: Array<{name:string;count:number;status:string}> = [];
 const pools: Array<{source:SourceRow;candidates:Candidate[]}> = [];
@@ -74,7 +75,7 @@ if (!fetched) throw new Error('所有信源均不可用，保留原网站');
 // 等待原框架精选发布门槛，不绕过公开规则。
 await new Promise(resolve => setTimeout(resolve, 181000));
 const result = await v1Items({ mode: 'all', window: '7d', by: 'published', category: null, q: null, limit: 100, cursor: null });
-const fresh = result.items.map(i => ({ url: i.links.original, title: i.title, summary: i.summary || '', category: i.category, tags: [], reason: i.reason || '', sourceName: i.source.name, score: i.score, origin: 'model' }));
+const fresh = result.items.map(i => ({ ...old.items.find((previous: {url:string}) => previous.url === i.links.original), url: i.links.original, title: i.title, summary: i.summary || '', category: i.category, tags: [], reason: i.reason || '', sourceName: i.source.name, score: i.score, origin: 'model' }));
 const merged = [...fresh, ...old.items.filter((i: {url:string}) => !fresh.some(n => n.url === i.url))].slice(0, 200);
 const updatedAt = new Date().toISOString();
 mkdirSync('.data', { recursive: true });

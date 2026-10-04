@@ -2,6 +2,7 @@
 // Every route goes through adminHandler (session + CSRF); manual changes are audited in the modules.
 import { readFile } from "node:fs/promises";
 import type { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { createSubmission, listSubmissions } from "@aihot/backend/admin/submissions";
 import { actorOf } from "@aihot/backend/admin/auth";
 
 import { importSelectBenchRun, listSelectBenchRuns, selectBenchRun } from "@aihot/backend/admin/selectbench";
@@ -36,6 +37,9 @@ function decodeImage(dataUrl: unknown): Buffer {
 }
 
 export function registerAdmin(app: FastifyInstance) {
+  app.get("/api/admin/submissions", adminHandler(async () => ({ rows: await listSubmissions() })));
+  app.post("/api/admin/submissions", { bodyLimit: 6 * 1024 * 1024 }, adminHandler(async (req, _reply, admin) => createSubmission(body(req), String(req.headers["idempotency-key"] ?? ""), actorOf(admin))));
+
   // Sources (F18)
   app.get("/api/admin/sources", adminHandler(async (req) => {
     const f = q(req);

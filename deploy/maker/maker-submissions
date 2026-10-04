@@ -1,0 +1,11 @@
+#!/bin/bash
+set -euo pipefail
+exec 9>/run/maker-collect.lock
+flock -n 9 || exit 0
+cd /home/admin/ai-maker-center
+docker compose run --rm --no-deps \
+ -v "$PWD/scripts:/app/scripts:ro" \
+ -v "$PWD/pages-preview:/app/pages-preview" \
+ -v "$PWD/.data:/app/.data" \
+ -e MODEL_CALLS_ENABLED=true -e COLLECT_ENABLED=true -e JINA_BODY_FALLBACK=false \
+ api node scripts/maker-submissions.ts
