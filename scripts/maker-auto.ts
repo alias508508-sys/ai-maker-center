@@ -81,7 +81,7 @@ for (const {source,candidate} of batch) {
       }
     } catch (error) {
       if (error instanceof SafetyHold) { if(error.status === "blocked") seen.add(candidate.url); continue; }
-      if (error instanceof BudgetExceededError) { processed = 12; break; }
+      if (error instanceof BudgetExceededError) { console.log(`达到调用额度，停止本轮分析；实际完成 ${processed} 条`); break; }
       // 不将服务商返回值写入公开日志。
       throw new Error(`模型分析失败：${error instanceof Error ? error.name : 'unknown'}`);
     }
@@ -91,13 +91,14 @@ if (!fetched) throw new Error('所有信源均不可用，保留原网站');
 await new Promise(resolve => setTimeout(resolve, 181000));
 const result = await v1Items({ mode: 'all', window: '7d', by: 'published', category: null, q: null, limit: 100, cursor: null });
 const fresh = result.items.map(i => ({ ...old.items.find((previous: {url:string}) => previous.url === i.links.original), url: i.links.original, title: i.title, summary: i.summary || '', category: i.category, tags: [], reason: i.reason || '', sourceName: i.source.name, score: i.score, origin: 'model' }));
+const added = fresh.filter(i => !old.items.some((previous: {url:string}) => previous.url === i.url));
 const merged = [...fresh, ...old.items.filter((i: {url:string}) => !fresh.some(n => n.url === i.url))].slice(0, 200);
 const updatedAt = new Date().toISOString();
 mkdirSync('.data', { recursive: true });
-writeFileSync('.data/maker-batch.json', JSON.stringify({ updatedAt, urls: fresh.map(i => i.url) }));
+writeFileSync('.data/maker-batch.json', JSON.stringify({ updatedAt, urls: added.map(i => i.url) }));
 writeFileSync(path, JSON.stringify({ updatedAt, runs: (old.runs ?? 0) + 1, seen: [...seen].slice(-5000), sources: submittedUrl ? old.sources : status, items: merged }, null, 2));
 if (submittedUrl) saveBookmark(submittedUrl, process.env.MAKER_NOTE ?? '', fresh.some(i => i.url === submittedUrl) || old.items.some((i: {url:string}) => i.url === submittedUrl) ? 'published' : 'saved');
-console.log(`公开新增 ${fresh.length} 条，保留 ${merged.length} 条`);
+console.log(`本轮AI分析 ${processed} 条，公开列表新增 ${added.length} 条，保留 ${merged.length} 条`);
 await stopBoss();
 await closeDb();
 

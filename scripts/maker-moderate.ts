@@ -75,7 +75,9 @@ try {
       const file = "pages-preview/rankings/" + name;
       const backup = ".data/safety-quarantine/rankings/" + name;
       mkdirSync(".data/safety-quarantine/rankings", { recursive: true });
-      if (!existsSync(backup)) copyFileSync(file, backup);
+      const currentRanking = JSON.parse(readFileSync(file, "utf8"));
+      const previousRanking = existsSync(backup) ? JSON.parse(readFileSync(backup, "utf8")) : null;
+      if (!previousRanking || previousRanking.generatedAt !== currentRanking.generatedAt) copyFileSync(file, backup);
       const ranking = JSON.parse(readFileSync(backup, "utf8"));
       ranking.items = ranking.items.flatMap((entry: any) => {
         const item = approvedItems.find(i => i.url === entry.url);
