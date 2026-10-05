@@ -10,7 +10,8 @@ import { toast } from "../../features/admin/toast";
 
 
 export async function loader({ request }: Route.LoaderArgs) {
-  return adminGet<AdminSettings>(request, "/api/admin/settings");
+  const [settings, safety] = await Promise.all([adminGet<AdminSettings>(request, "/api/admin/settings"), adminGet<{ enabled: boolean; configured: boolean; provider: string; counts: { pass: number; blocked: number; retry: number } }>(request, "/api/admin/safety")]);
+  return { ...settings, safety };
 }
 
 export const meta: Route.MetaFunction = () => [{ title: `设置 · ${SITE.name} 后台` }];
@@ -125,6 +126,10 @@ function PasswordSettings() {
 export default function SettingsAdmin({ loaderData: s }: Route.ComponentProps) {
   return (
     <AdminPage title="设置" subtitle="不改代码即可替换的运营设置。每次修改都写入审计记录。">
+      <Card title="自动内容安全审核" className="mb-5">
+        <p className="text-sm text-ink-3">{s.safety.enabled && s.safety.configured ? "已启用：文字与图片自动审核，不通过不发布；服务异常自动重试。" : "待启用：专业审核接口已接入，需先配置阿里云内容安全服务。"}</p>
+        <p className="mt-3 text-sm text-ink-3">审核记录：通过 {s.safety.counts.pass} · 拦截 {s.safety.counts.blocked} · 等待重试 {s.safety.counts.retry}</p>
+      </Card>
       <PasswordSettings />
       <div className="grid gap-5 xl:grid-cols-2">
         <Card title="关于页二维码">

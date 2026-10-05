@@ -1,3 +1,5 @@
+import { safetyEnabled } from "../safety/policy.ts";
+import { articleSafetyPassed } from "../safety/article.ts";
 import { selectedCondition, listedCondition } from "./scope.ts";
 // Item detail and Markdown export, both behind the same visibility and licence rules.
 import type { ItemDetail, SiteItemDetail, OutlineEntry, StoryRef } from "@aihot/contracts/site";
@@ -50,10 +52,10 @@ async function loadRow(id: string): Promise<DetailRow | null> {
  */
 export async function loadItemDetail(id: string, now = new Date()): Promise<DetailResult> {
   const row = await loadRow(id);
-  if (!row || !hasItemPage({ visibility: row.visibility, sourceMode: row.source_mode })) return { kind: "not_found" };
+  if (!row || !await articleSafetyPassed(id) || !hasItemPage({ visibility: row.visibility, sourceMode: row.source_mode })) return { kind: "not_found" };
 
   const summary = toItemSummary(row);
-  if (row.channel === "x" && row.body_mode === "full") summary.x = xView(row, false, true);
+  if (!safetyEnabled() && row.channel === "x" && row.body_mode === "full") summary.x = xView(row, false, true);
   if (row.visibility === "summary-only") {
     const detail: ItemDetail = {
       ...summary,
@@ -81,7 +83,7 @@ export async function loadItemDetail(id: string, now = new Date()): Promise<Deta
 
   let body: ItemDetail["body"] = null;
   let outline: OutlineEntry[] = [];
-  if (row.channel === "x" && row.body_mode === "full") {
+  if (!safetyEnabled() && row.channel === "x" && row.body_mode === "full") {
     const text = String(row.x_post?.text ?? row.body_text ?? "");
     body = {
       zh: summary.x?.translation ? textToHtml(summary.x.translation) : null,
@@ -89,7 +91,7 @@ export async function loadItemDetail(id: string, now = new Date()): Promise<Deta
       zhKind: summary.x?.translation ? "translation" : null,
       complete: true,
     };
-  } else if (row.body_mode === "full" && row.body_html) {
+  } else if (!safetyEnabled() && row.body_mode === "full" && row.body_html) {
     const isZh = row.language === "zh" || (/[一-鿿]/.test(row.body_text?.slice(0, 400) ?? "") && row.language !== "en");
     const original = proxyBodyImages(row.body_html);
     const zh = isZh ? original : row.tr_html ? proxyBodyImages(row.tr_html) : null;
@@ -172,7 +174,7 @@ export async function exportMarkdown(id: string): Promise<{ filename: string; bo
     const q = row.x_post.quoted as { handle?: string; text?: string; url?: string } | null | undefined;
     if (q?.text) lines.push(`## 引用 @${q.handle ?? ""}`, "", ...String(q.text).split("\n").map((l) => `> ${l}`), "", ...(q.url ? [q.url, ""] : []));
     if (q?.text && row.quoted_zh) lines.push("### 引用中文译文", "", ...row.quoted_zh.split("\n").map((l) => `> ${l}`), "");
-  } else if (row.body_mode === "full" && row.body_html) {
+  } else if (!safetyEnabled() && row.body_mode === "full" && row.body_html) {
     const isZh = row.language === "zh";
     if (!isZh && row.tr_html && row.tr_complete) lines.push("## 正文 · 中文译文", "", turndown.turndown(row.tr_html), "");
     lines.push(isZh ? "## 正文" : "## 正文 · 原文", "", turndown.turndown(row.body_html), "");

@@ -1,3 +1,6 @@
+import { reviewSafety } from "@aihot/backend/safety/review";
+import { safetyEnabled, SafetyHold } from "@aihot/backend/safety/policy";
+import { reviewArticleSafety } from "@aihot/backend/safety/article";
 import { MAKER_CATEGORY_KEYS, MAKER_CATEGORY_GUIDE } from '@aihot/industry/maker-categories';
 // Actions 批次：复用原框架回执、预算、分析和公开读取层。
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
@@ -67,14 +70,17 @@ for (const {source,candidate} of batch) {
     if (!body || body.length < 30) continue;
     const material = await upsertMaterial({ ...candidate, bodyText: body, bodyStatus: 'unconfirmed', sourceId: source.id, via: 'fetch' });
     try {
+      if (safetyEnabled()) { const status = await reviewSafety("text", JSON.stringify({title:candidate.title,body})); if (status !== "pass") throw new SafetyHold(status); }
       const result = submittedUrl ? await publishSubmitted(material.articleId, candidate) : await analyzeArticle(material.articleId);
       if (result?.output) {
-        await publishArticle(material.articleId);
+        if (!await reviewArticleSafety(material.articleId)) throw new SafetyHold("retry");
+    await publishArticle(material.articleId);
         seen.add(candidate.url);
         processed++;
         console.log(`已分析 ${processed} 条（${source.name}）`);
       }
     } catch (error) {
+      if (error instanceof SafetyHold) { if(error.status === "blocked") seen.add(candidate.url); continue; }
       if (error instanceof BudgetExceededError) { processed = 12; break; }
       // 不将服务商返回值写入公开日志。
       throw new Error(`模型分析失败：${error instanceof Error ? error.name : 'unknown'}`);

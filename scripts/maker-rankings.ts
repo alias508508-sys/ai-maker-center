@@ -1,4 +1,5 @@
 // 定时任务评估已经通过公开读取层导出的资讯；访问首页不触发模型。
+import { filterSafeItems } from "./maker-safety.ts";
 import { readFileSync, writeFileSync, mkdirSync, existsSync, renameSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { z } from 'zod';
@@ -14,7 +15,7 @@ const score=z.number().int().min(0).max(5);
 const schema=z.object({assessments:z.array(z.object({url:z.string().url(),eligible:z.boolean(),innovation:score,ai:score,practice:score,education:score,evidence:score,event:z.string().min(1).max(200),reason:z.string().min(1).max(160)}))});
 try {
   const data=JSON.parse(readFileSync('pages-preview/data.json','utf8'));
-  const imageItems:RankedItem[]=data.items.filter(hasImage);
+  const imageItems:RankedItem[]=filterSafeItems<RankedItem>(data.items).filter(hasImage);
   mkdirSync('.data',{recursive:true});mkdirSync('pages-preview/rankings',{recursive:true});
   const cachePath='.data/maker-ranking-scores.json';
   const cache:Record<string,Assessment>=existsSync(cachePath)?JSON.parse(readFileSync(cachePath,'utf8')):{};

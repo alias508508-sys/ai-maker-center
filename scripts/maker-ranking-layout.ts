@@ -8,7 +8,7 @@ type Entry=RankedItem & {rankingScore:number;rankingReason:string};
 const escape=(value:string)=>value.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
 export function rankingSection(ranking:{date:string;items:Entry[]}|null, current:RankedItem[]) {
   if(!ranking)return {html:'',css:''};
-  const items=ranking.items.filter(i=>current.some(c=>c.url===i.url)&&!!i.cover?.match(/^assets\/covers\/[a-f0-9]+\.webp$/)&&existsSync('pages-preview/'+i.cover)).slice(0,8);
+  const items=ranking.items.filter(i=>current.some(c=>c.url===i.url)&&!!i.cover?.match(/^assets\/covers\/[a-f0-9]+\.webp$/)&&existsSync('pages-preview/'+i.cover)).slice(0,8).map(i=>({...i,...current.find(c=>c.url===i.url)!}));
   const labels:Record<string,string>={hardware:'AI 与硬件','ai-products':'AI与设计',industry:'AI创新案例',tip:'AI教育实践'};
   const cards=items.map((i,index)=>{
     const url=new URL(i.url);if(!['http:','https:'].includes(url.protocol))throw Error('Invalid ranking URL');

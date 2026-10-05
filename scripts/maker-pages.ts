@@ -1,8 +1,9 @@
+import { filterSafeItems } from "./maker-safety.ts";
 import { rankingSection } from "./maker-ranking-layout.ts";
 // 生成独立静态预览：真实首版人工整理内容，不包含密钥或运行数据库。
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 const { items, updatedAt } = JSON.parse(readFileSync("pages-preview/data.json", "utf8"));
-const visibleItems = items.map((item: { cover?: string }) => ({ ...item, cover: item.cover?.startsWith("assets/covers/") && !item.cover.includes("..") && existsSync("pages-preview/" + item.cover) ? item.cover : undefined }));
+const visibleItems = filterSafeItems(items).map((item: { cover?: string }) => ({ ...item, cover: item.cover?.startsWith("assets/covers/") && !item.cover.includes("..") && existsSync("pages-preview/" + item.cover) ? item.cover : undefined }));
 const ranking = existsSync("pages-preview/rankings/latest.json") ? JSON.parse(readFileSync("pages-preview/rankings/latest.json", "utf8")) : null;
 const daily = rankingSection(ranking, visibleItems);
 const payload = JSON.stringify(visibleItems).replaceAll("<", "\\u003c");

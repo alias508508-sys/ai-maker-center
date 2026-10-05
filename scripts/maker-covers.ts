@@ -1,4 +1,7 @@
 // 优先社交封面，再取正文原图，最后截取浏览器中的图片区域。
+import { reviewSafety } from "@aihot/backend/safety/review";
+import { safetyEnabled } from "@aihot/backend/safety/policy";
+import { closeDb } from "@aihot/backend/db";
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { coverCandidates, renderedCover } from './maker-cover-images.ts';
@@ -39,10 +42,14 @@ for(const item of data.items){
     } else if(!bytes)deferred=true;
     if(!bytes)throw new Error('no suitable image');
     const name=createHash('sha256').update(item.url).digest('hex').slice(0,16)+'.webp';
-    await sharp(bytes,{limitInputPixels:40000000}).rotate().resize(960,540,{fit:'cover',position:'attention'}).webp({quality:80}).toFile('pages-preview/assets/covers/'+name);
+    const rendered=await sharp(bytes,{limitInputPixels:40000000}).rotate().resize(960,540,{fit:'cover',position:'attention'}).webp({quality:80}).toBuffer();
+    if(safetyEnabled() && await reviewSafety('image',rendered)!=='pass') {deferred=true;throw new Error('image held');}
+    writeFileSync('pages-preview/assets/covers/'+name,rendered);
     item.cover='assets/covers/'+name;item.coverSource=source;item.coverMethod ||= 'original-image';found++;
   }catch{/* 无合适图片时保留文字，不生成占位图。 */}
   item.coverChecked=true;if(!deferred)item.coverCheckedVersion=version;
 }
 writeFileSync(path,JSON.stringify(data,null,2));
 console.log(`封面检查 ${attempts} 条，新增 ${found} 张，统一 960×540。`);
+
+await closeDb();

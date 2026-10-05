@@ -2,34 +2,37 @@
 // listed, selected, or evidence of its fact uses these predicates over `publications p` (and, for
 // evidence, `fact_articles fa`); no other module spells visibility, the release gate or the composite
 // rule in SQL. What a publication holds is derived once, at publish time, by publish.ts and rules.ts.
+import { safetyEnabled } from "../safety/policy.ts";
 import { sql } from "../db.ts";
+
+export function safetyCondition() { return safetyEnabled() ? sql`p.safety_approved` : sql`true`; }
 
 /**
  * The release gate : a selected report appears once grouping settled or 180 s passed,
  * `visible_after`, judged at read time so no worker has to open it.
  */
 export function releasedCondition(now: Date) {
-  return sql`(NOT p.selected OR p.visible_after <= ${now})`;
+  return sql`${safetyCondition()} AND (NOT p.selected OR p.visible_after <= ${now})`;
 }
 
 /** Listed on public surfaces now: public, pool eligible, and past the release gate. */
 export function listedCondition(now: Date) {
-  return sql`p.visibility = 'public' AND p.eligible AND ${releasedCondition(now)}`;
+  return sql`${safetyCondition()} AND p.visibility = 'public' AND p.eligible AND ${releasedCondition(now)}`;
 }
 
 /** Story reports include older editorial material outside the pool, but never withdrawn or gated content. */
 export function storyReportCondition(now: Date) {
-  return sql`p.visibility = 'public' AND s.participation_mode = 'editorial' AND ${releasedCondition(now)}`;
+  return sql`${safetyCondition()} AND p.visibility = 'public' AND s.participation_mode = 'editorial' AND ${releasedCondition(now)}`;
 }
 
 /** Selected reports still behind the release gate: caches of their scope must expire when it opens. */
 export function pendingReleaseCondition(now: Date) {
-  return sql`p.visibility = 'public' AND p.selected AND p.visible_after > ${now}`;
+  return sql`${safetyCondition()} AND p.visibility = 'public' AND p.selected AND p.visible_after > ${now}`;
 }
 
 /** Selected set as the website shows it (home timeline, reading groups, topics): every selected report. */
 export function selectedCondition(now: Date) {
-  return sql`p.visibility = 'public' AND p.selected AND p.visible_after <= ${now}`;
+  return sql`${safetyCondition()} AND p.visibility = 'public' AND p.selected AND p.visible_after <= ${now}`;
 }
 
 

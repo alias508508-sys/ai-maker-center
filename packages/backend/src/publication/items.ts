@@ -1,5 +1,6 @@
 // Public read layer, item level. Every exit (site API, v1, RSS, MCP, sitemap) reads
 // items through these functions; visibility, release gate and body licences are applied here.
+import { safetyEnabled } from "../safety/policy.ts";
 import type { CategoryKey, ChannelKey } from "@aihot/contracts/taxonomy";
 import type { FeedItemSummary, ItemSummary, MediaView, SourceKind, XPostView } from "@aihot/contracts/site";
 import { sql, type Db } from "../db.ts";
@@ -115,6 +116,7 @@ function mediaView(m: Record<string, any>, mode: "card" | "thumb" | "full" = "th
 }
 
 export function xView(row: Pick<ItemRow, "x_post" | "zh_text"> & Partial<Pick<ItemRow, "quoted_zh">>, compact = false, responsive = compact): XPostView | null {
+  if (safetyEnabled()) return null;
   const x = row.x_post;
   if (!x) return null;
   const quoted = x.quoted && typeof x.quoted === "object"

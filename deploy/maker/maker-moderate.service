@@ -1,0 +1,8 @@
+[Unit]
+Description=AI maker automatic content moderation and retry
+After=docker.service
+Requires=docker.service
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/maker-moderate
+TimeoutStartSec=1800

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd /home/admin/ai-maker-center
+exec 9>/run/maker-collect.lock
+flock -n 9 || exit 0
+# When disabled or not configured, this run preserves the current site and reports the setup state.
+docker compose run --rm --no-deps -v "$PWD/scripts:/app/scripts:ro" -v "$PWD/pages-preview:/app/pages-preview" -v "$PWD/.data:/app/.data" -e COLLECT_ENABLED=false -e MODEL_CALLS_ENABLED=true api sh -c 'node scripts/maker-moderate.ts && node scripts/maker-pages.ts'

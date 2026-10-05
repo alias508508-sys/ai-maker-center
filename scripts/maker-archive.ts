@@ -1,3 +1,4 @@
+import { filterSafeItems } from "./maker-safety.ts";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -13,7 +14,7 @@ export function archiveBatch(root: string, data: {items: Array<Record<string, an
   const index = existsSync(indexPath) ? JSON.parse(readFileSync(indexPath, 'utf8')) : [];
   if (!index.some((entry: {file: string}) => entry.file === file)) {
     const urls = new Set(batch.urls);
-    const items = data.items.filter(item => urls.has(item.url));
+    const items = filterSafeItems(data.items).filter(item => urls.has(item.url));
     mkdirSync(join(directory, date), { recursive: true });
     writeFileSync(join(directory, file), JSON.stringify({schemaVersion: 1, collectedAt: batch.updatedAt, date, timezone: 'Asia/Shanghai', kind: initial ? 'initial-snapshot' : 'published-batch', items}, null, 2), {flag: 'wx'});
     index.push({file, date, collectedAt: batch.updatedAt, count: items.length, kind: initial ? 'initial-snapshot' : 'published-batch'});

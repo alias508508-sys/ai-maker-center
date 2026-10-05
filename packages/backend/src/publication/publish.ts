@@ -1,6 +1,8 @@
 // Publishing: derive the public projection of one article from its material, the latest judgement,
 // manual overrides and grouping, then record selected-set changes in the sync ledger.
 // Rebuilding only re-reads stored results; it never calls a model.
+import { safetyEnabled } from "../safety/policy.ts";
+import { articleSafetyPassed } from "../safety/article.ts";
 import { invalidateStoryInputs } from "../events/derived-content.ts";
 import { SITE } from "@aihot/industry/site";
 import { toPublicApiCategory } from "@aihot/contracts/taxonomy";
@@ -183,7 +185,8 @@ export async function publishArticleTx(tx: Tx, articleId: string, options: Publi
   const relevance = typeof f.relevance === "string" ? (f.relevance as string) : analysis?.relevance ?? null;
   const judgedSelected = typeof f.selected === "boolean" ? (f.selected as boolean) : analysis?.selected ?? null;
   // Material from an isolated source reaches no public surface at all: not even a detail page.
-  const visibility = source.participation_mode === "isolated" ? "withdrawn" : (override?.visibility ?? "public");
+  const safetyPassed = await articleSafetyPassed(articleId, tx);
+  const visibility = !safetyPassed || source.participation_mode === "isolated" ? "withdrawn" : (override?.visibility ?? "public");
 
   const eligible = isPoolEligible({ participationMode: source.participation_mode, relevance, title, summary });
   const selected = isSelectable(eligible, judgedSelected, source.tier);
@@ -293,6 +296,8 @@ export async function publishArticleTx(tx: Tx, articleId: string, options: Publi
 
   // Content-group push: once, for an item that arrives live and becomes selected (never for imports,
   // backfill or stale-on-discovery material); it runs after the release gate opens.
+  await tx`UPDATE publications SET safety_approved = ${safetyEnabled() && safetyPassed} WHERE article_id = ${articleId} AND safety_approved IS DISTINCT FROM ${safetyEnabled() && safetyPassed}`;
+
   if (selected && !previous?.selected_ready_at && !options.releasedAt && !article.backfill && visibility === "public") {
     const at = visibleAfter && visibleAfter > now ? visibleAfter : now;
     await enqueue(QUEUES.notifySelected, { articleId }, { singletonKey: `selected:${articleId}`, startAfter: new Date(at.getTime() + 5_000) }, tx);

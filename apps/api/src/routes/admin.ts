@@ -1,5 +1,6 @@
 // /api/admin/*: queries are GET, creation POST, edits PATCH, business commands POST.
 // Every route goes through adminHandler (session + CSRF); manual changes are audited in the modules.
+import { safetyOverview } from "@aihot/backend/safety/status";
 import { readFile } from "node:fs/promises";
 import type { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { createSubmission, listSubmissions } from "@aihot/backend/admin/submissions";
@@ -109,6 +110,7 @@ export function registerAdmin(app: FastifyInstance) {
   app.post("/api/admin/monitor/posts/:id/resolve", adminHandler(async (req, reply, admin) => orNotFound(req, reply, await resolveMonitorPost(param(req, "id"), body(req) as never, actorOf(admin)))));
 
   // Settings
+  app.get("/api/admin/safety", adminHandler(async () => safetyOverview()));
   app.get("/api/admin/settings", adminHandler(async () => settingsOverview()));
   app.post("/api/admin/settings/contact-qr", adminHandler(async (req, _reply, admin) => {
     const b = body<{ slot: "wechatQr" | "feishuQr"; image: string }>(req);

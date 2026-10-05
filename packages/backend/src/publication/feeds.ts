@@ -1,3 +1,4 @@
+import { safetyEnabled } from "../safety/policy.ts";
 import { listedCondition, selectedCondition } from "./scope.ts";
 // RSS feeds. GUID = article id (isPermaLink=false), <link> = the site's page, pubDate = source
 // publication time. Summary feeds never carry content:encoded; full feeds inline bodies only for
@@ -71,6 +72,7 @@ const FEED_IMAGE_SECONDS = 7 * 86400;
  * ends with an attribution line (also a mark on copies taken from the feed).
  */
 function fullContent(r: FeedRow, aihot: string): string | null {
+  if (safetyEnabled()) return null;
   let html: string | null = null;
   const x = r.channel === "x" ? xView({ x_post: r.x_post ?? null, zh_text: r.zh_text ?? null, quoted_zh: r.quoted_zh ?? null }) : null;
   if (x?.text) {

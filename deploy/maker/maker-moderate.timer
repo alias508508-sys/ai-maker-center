@@ -1,0 +1,8 @@
+[Unit]
+Description=Retry pending AI maker content moderation every five minutes
+[Timer]
+OnCalendar=*:0/5
+Persistent=true
+Unit=maker-moderate.service
+[Install]
+WantedBy=timers.target

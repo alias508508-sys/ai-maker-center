@@ -1,3 +1,7 @@
+import { reviewSafety } from "@aihot/backend/safety/review";
+import { safetyEnabled, SafetyHold } from "@aihot/backend/safety/policy";
+import { filterSafeItems } from "./maker-safety.ts";
+import { reviewArticleSafety } from "@aihot/backend/safety/article";
 import { MAKER_CATEGORY_KEYS, MAKER_CATEGORY_GUIDE } from '@aihot/industry/maker-categories';
 // Called by the server's private publisher, under the same file lock as scheduled collection.
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
@@ -31,6 +35,7 @@ try {
     const [stored] = job.article_id ? await sql`SELECT title,body_text FROM articles WHERE id=${job.article_id}` : [];
     const candidate = input.kind === 'article' ? {url,title:input.title,bodyText:input.body,bodyStatus:'ok' as const} : stored?.body_text ? {url,title:stored.title,bodyText:stored.body_text,bodyStatus:'ok' as const} : await submittedCandidate(url);
     if (!candidate?.bodyText) throw new Error('无法读取链接正文（可能被网站限制）。请改用“自己写文章”补充内容后提交。');
+    if (safetyEnabled()) { const status = await reviewSafety("text", JSON.stringify({title:candidate.title,body:candidate.bodyText})); if(status !== "pass") throw new SafetyHold(status); }
     const material = await upsertMaterial({sourceId,url,title:candidate.title,bodyText:candidate.bodyText,bodyStatus:'ok',via:'ingest'});
     await sql`UPDATE maker_submissions SET article_id=${material.articleId},updated_at=now() WHERE id=${jobId}`;
     const [article] = await sql`SELECT revision FROM articles WHERE id=${material.articleId}`;
@@ -39,6 +44,7 @@ try {
     const category = input.category==='auto'||input.category==='opinion' ? edited.data.category : input.category;
     await sql`INSERT INTO analyses (article_id,input_revision,origin,prompt_version,relevance,category,tags,title_zh,summary_zh,reason_zh,selected,output) VALUES (${material.articleId},${article!.revision},'model','maker-admin-v2','pass',${category},${[]},${title},${edited.data.summary},'站主提交，直接发布；AI 整理摘要',true,${sql.json({method:'owner-submitted',receiptId:edited.receiptId})})`;
     await markReceiptsCompleted([edited.receiptId]);
+    if (!await reviewArticleSafety(material.articleId)) throw new SafetyHold("retry");
     await publishArticle(material.articleId);
     await new Promise(resolve=>setTimeout(resolve,181000));
     const result = await v1Items({mode:'all',window:'7d',by:'published',category:null,q:null,limit:100,cursor:null});
@@ -48,7 +54,9 @@ try {
     mkdirSync('pages-preview/assets/covers',{recursive:true});
     for (const [index,image] of input.images.entries()) {
       const dest=`assets/covers/${jobId}-${index}.webp`;
-      await sharp(Buffer.from(image.split(',')[1]!, 'base64'),{limitInputPixels:40000000}).rotate().resize({width:1600,height:1600,fit:'inside',withoutEnlargement:true}).webp({quality:80}).toFile('pages-preview/'+dest);
+      const bytes = await sharp(Buffer.from(image.split(',')[1]!, 'base64'),{limitInputPixels:40000000}).rotate().resize({width:1600,height:1600,fit:'inside',withoutEnlargement:true}).webp({quality:80}).toBuffer();
+      if(safetyEnabled()) { const status=await reviewSafety('image',bytes); if(status!=='pass')throw new SafetyHold(status); }
+      writeFileSync('pages-preview/'+dest,bytes);
       imagePaths.push(dest);
     }
     let cover: string | undefined;
@@ -70,17 +78,18 @@ try {
     writeFileSync('pages-preview/data.json',JSON.stringify(data,null,2));
     mkdirSync('.data',{recursive:true});
     writeFileSync('.data/maker-batch.json',JSON.stringify({updatedAt:data.updatedAt,urls:[url]}));
-    for(const script of ['maker-covers','maker-archive','maker-pages']) {
+    for(const script of ['maker-covers','maker-moderate','maker-archive','maker-pages']) {
       const child=spawnSync(process.execPath,[`scripts/${script}.ts`],{stdio:'inherit'});
       if(child.status!==0)throw new Error('内容已保存，页面生成失败，请检查服务器发布日志。');
     }
+    if(safetyEnabled() && !filterSafeItems([item]).length)throw new SafetyHold("retry");
     await sql`UPDATE maker_submissions SET status='published',result_url=${url},error=NULL,updated_at=now() WHERE id=${jobId}`;
     console.log('投稿已发布');
   }
 } catch(error) {
   // Do not expose provider errors, request payloads or credentials in logs or the admin table.
-  const budgetPause=error instanceof BudgetExceededError;
-  const message=budgetPause?'模型调用预算暂满，投稿已保存，额度恢复后自动继续。':error instanceof Error && /^(无法读取|内容已保存)/.test(error.message)?error.message:'处理失败，请检查链接、模型余额及后台回执；原投稿已保存。';
+  const budgetPause=error instanceof BudgetExceededError || error instanceof SafetyHold && error.status === "retry";
+  const message=error instanceof SafetyHold ? error.message : budgetPause?'模型调用预算暂满，投稿已保存，额度恢复后自动继续。':error instanceof Error && /^(无法读取|内容已保存)/.test(error.message)?error.message:'处理失败，请检查链接、模型余额及后台回执；原投稿已保存。';
   if(jobId) await sql`UPDATE maker_submissions SET status=${budgetPause?'queued':'failed'},error=${message},updated_at=now() WHERE id=${jobId}`;
   console.error(message); if(!budgetPause) process.exitCode=1;
 } finally { await stopBoss(); await closeDb(); }
