@@ -1,0 +1,7 @@
+[Unit]
+Description=Generate AI maker daily innovation ranking
+After=docker.service
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/maker-rankings
+TimeoutStartSec=3600

@@ -1,0 +1,11 @@
+#!/bin/bash
+set -euo pipefail
+exec 9>/run/maker-collect.lock
+flock -w 1800 9
+cd /home/admin/ai-maker-center
+docker compose run --rm --no-deps \
+ -v "$PWD/scripts:/app/scripts:ro" \
+ -v "$PWD/pages-preview:/app/pages-preview" \
+ -v "$PWD/.data:/app/.data" \
+ -e MODEL_CALLS_ENABLED=true -e COLLECT_ENABLED=false \
+ api sh -c 'node scripts/maker-rankings.ts && node scripts/maker-pages.ts'
