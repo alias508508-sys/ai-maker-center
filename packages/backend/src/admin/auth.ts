@@ -1,10 +1,10 @@
 // Admin identity: the admin password (ADMIN_PASSWORD), or optionally Feishu OAuth with an allowlist of
 // union_ids / emails; opaque sessions stored hashed, and an audit trail for every manual change.
 // Development may impersonate an admin with DEV_AUTH_ROLE=admin; production refuses to start with it.
-import { createHmac, randomBytes, timingSafeEqual } from "node:crypto";
+import { createHmac, randomBytes, scryptSync, timingSafeEqual } from "node:crypto";
 import { config, credential } from "../config.ts";
 import { audit } from "../audit.ts";
-import { sql } from "../db.ts";
+import { sql, type Db } from "../db.ts";
 import { sha256 } from "../lib/ids.ts";
 
 export const SESSION_COOKIE = "aihot_admin";
@@ -55,13 +55,46 @@ function validClaims(value: unknown): value is FeishuClaims {
     (c.email === null || (typeof c.email === "string" && c.email.length > 0 && c.email === c.email.toLowerCase()));
 }
 
-function sessionAuthorized(row: { auth_method: string | null; auth_binding: string | null; auth_claims: unknown }): boolean {
+async function passwordIdentity(db: Db = sql): Promise<string | null> {
+  const [row] = await db<{ password_hash: string }[]>`SELECT password_hash FROM admin_password WHERE singleton = true`;
+  return row?.password_hash ?? config.adminPassword;
+}
+
+function matchesPassword(password: string, identity: string): boolean {
+  if (identity.startsWith("scrypt$")) {
+    const [, salt, hash] = identity.split("$");
+    const expected = Buffer.from(hash!, "hex");
+    const given = scryptSync(password, salt!, 64);
+    return expected.length === given.length && timingSafeEqual(expected, given);
+  }
+  return timingSafeEqual(createHmac("sha256", "admin-password").update(password).digest(), createHmac("sha256", "admin-password").update(identity).digest());
+}
+
+export async function changeAdminPassword(currentPassword: string, newPassword: string, actor: string) {
+  if (newPassword.length < 12 || newPassword.length > 256) throw new LoginRejected("新密码需要 12 至 256 位");
+  if (currentPassword.length > 256) throw new LoginRejected("当前密码不对");
+  const salt = randomBytes(16).toString("hex");
+  const hash = `scrypt$${salt}$${scryptSync(newPassword, salt, 64).toString("hex")}`;
+  await sql.begin(async (tx) => {
+    await tx`SELECT pg_advisory_xact_lock(728194001)`;
+    const identity = await passwordIdentity(tx);
+    if (!identity || !matchesPassword(currentPassword, identity)) throw new LoginRejected("当前密码不对");
+    if (matchesPassword(newPassword, identity)) throw new LoginRejected("新密码不能与当前密码相同");
+    await tx`INSERT INTO admin_password (singleton, password_hash) VALUES (true, ${hash})
+      ON CONFLICT (singleton) DO UPDATE SET password_hash = EXCLUDED.password_hash, updated_at = now()`;
+    await tx`DELETE FROM admin_sessions WHERE auth_method = 'password'`;
+    await audit(actor, "auth.password_change", "admin:password", null, null, { changed: true }, { db: tx });
+  });
+}
+
+async function sessionAuthorized(row: { auth_method: string | null; auth_binding: string | null; auth_claims: unknown }): Promise<boolean> {
   const key = credential("auth", "SESSION_SECRET");
   if (!key || !row.auth_binding || !/^[0-9a-f]{64}$/.test(row.auth_binding)) return false;
   let binding: string;
   if (row.auth_method === "password") {
-    if (!config.adminPassword || config.adminPassword.length < 12 || row.auth_claims !== null) return false;
-    binding = sessionBinding("password", config.adminPassword, key);
+    const identity = await passwordIdentity();
+    if (!identity || identity.length < 12 || row.auth_claims !== null) return false;
+    binding = sessionBinding("password", identity, key);
   } else if (row.auth_method === "feishu") {
     const c = row.auth_claims;
     if (!validClaims(c) || !feishuLoginConfigured() || c.appId !== credential("integrations", "FEISHU_LOGIN_APP_ID")) return false;
@@ -191,11 +224,9 @@ const PASSWORD_ADMIN = "admin@local";
 
 /** Password sign-in: a constant-time comparison of digests, so the length leaks nothing either. */
 export async function passwordLogin(password: string, returnTo: string, userAgent: string | undefined) {
-  const expected = config.adminPassword;
+  const expected = await passwordIdentity();
   if (!expected || expected.length < 12) throw new LoginRejected("还没有设置管理员密码（环境变量 ADMIN_PASSWORD，至少 12 位）");
-  const given = createHmac("sha256", "admin-password").update(password).digest();
-  const wanted = createHmac("sha256", "admin-password").update(expected).digest();
-  if (!timingSafeEqual(given, wanted)) throw new LoginRejected("密码不对");
+  if (password.length > 256 || !matchesPassword(password, expected)) throw new LoginRejected("密码不对");
   const auth: SessionAuth = { method: "password", claims: null, binding: sessionBinding("password", expected, secret()) };
   const [user] = await sql<{ id: number }[]>`
     INSERT INTO admin_users (email, display_name, last_login_at) VALUES (${PASSWORD_ADMIN}, '管理员', now())
@@ -214,7 +245,7 @@ export async function sessionPrincipal(cookieHeader: string | undefined): Promis
       FROM admin_sessions s JOIN admin_users u ON u.id = s.user_id
       WHERE s.id_hash = ${hash} AND s.expires_at > now()`;
     if (row) {
-      if (sessionAuthorized(row)) return { userId: row.user_id, name: row.name ?? row.email ?? `admin:${row.user_id}`, csrf: row.csrf_token, dev: false };
+      if (await sessionAuthorized(row)) return { userId: row.user_id, name: row.name ?? row.email ?? `admin:${row.user_id}`, csrf: row.csrf_token, dev: false };
       // 已观察到失效的会话永久退出，之后恢复旧配置也不会重新授权这张 Cookie。
       await sql`DELETE FROM admin_sessions WHERE id_hash = ${hash}`;
     }

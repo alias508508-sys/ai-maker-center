@@ -1,0 +1,60 @@
+import './setup.ts';
+import assert from 'node:assert/strict';
+import { after, before, test } from 'node:test';
+import Fastify from 'fastify';
+import { config } from '@aihot/backend/config';
+import { closeDb, sql } from '@aihot/backend/db';
+import { passwordLogin, sessionPrincipal, SESSION_COOKIE } from '@aihot/backend/admin/auth';
+import { registerAdminAuth } from '../apps/api/src/routes/admin-auth.ts';
+
+const app = Fastify({ logger: false });
+registerAdminAuth(app);
+const original = { password: config.adminPassword, dev: config.devAdmin };
+const initial = 'test-original-password-123';
+const next = 'test-replacement-password-456';
+const cookie = (token: string) => `${SESSION_COOKIE}=${token}`;
+before(async () => {
+  config.adminPassword = initial;
+  config.devAdmin = null;
+  await sql`DELETE FROM admin_password`;
+});
+after(async () => {
+  await sql`DELETE FROM admin_password`;
+  await sql`DELETE FROM admin_sessions WHERE user_id IN (SELECT id FROM admin_users WHERE email = 'admin@local')`;
+  config.adminPassword = original.password;
+  config.devAdmin = original.dev;
+  await app.close();
+  await closeDb();
+});
+test('password change requires a session and CSRF; rejects wrong current password and mismatched confirmation', async () => {
+  const { token } = await passwordLogin(initial, '/admin', undefined);
+  const me = (await sessionPrincipal(cookie(token)))!;
+  const payload = { currentPassword: initial, newPassword: next, confirmPassword: next };
+  const send = (body: Record<string, string>, headers: Record<string, string> = {}) => app.inject({ method: 'POST', url: '/api/admin/settings/password', payload: body, headers });
+  assert.equal((await send(payload)).statusCode, 401);
+  assert.equal((await send(payload, { cookie: cookie(token) })).statusCode, 403);
+  const headers = { cookie: cookie(token), 'x-csrf-token': me.csrf };
+  assert.equal((await send({ ...payload, currentPassword: 'wrong' }, headers)).statusCode, 400);
+  assert.equal((await send({ ...payload, confirmPassword: initial }, headers)).statusCode, 400);
+  assert.equal((await send({ ...payload, newPassword: 'short', confirmPassword: 'short' }, headers)).statusCode, 400);
+  assert.equal((await sql`SELECT * FROM admin_password`).length, 0);
+  const second = await passwordLogin(initial, '/admin', undefined);
+  const result = await send(payload, headers);
+  assert.equal(result.statusCode, 200);
+  assert.match(String(result.headers['set-cookie']), /Max-Age=0/);
+  assert.equal(await sessionPrincipal(cookie(token)), null);
+  assert.equal(await sessionPrincipal(cookie(second.token)), null);
+  await assert.rejects(passwordLogin(initial, '/admin', undefined));
+  const newLogin = await passwordLogin(next, '/admin', undefined);
+  assert.ok(await sessionPrincipal(cookie(newLogin.token)));
+  // Persisted override also survives a changed environment password (and process restarts).
+  config.adminPassword = 'test-different-environment-password';
+  assert.ok(await sessionPrincipal(cookie(newLogin.token)));
+  assert.ok(await passwordLogin(next, '/admin', undefined));
+  const [stored] = await sql`SELECT password_hash FROM admin_password`;
+  assert.match(stored!.password_hash, /^scrypt\$/);
+  assert.ok(!stored!.password_hash.includes(next));
+  const [entry] = await sql`SELECT before, after FROM audit_log WHERE action = 'auth.password_change' ORDER BY id DESC LIMIT 1`;
+  assert.deepEqual(entry!.after, { changed: true });
+  assert.equal(entry!.before, null);
+});

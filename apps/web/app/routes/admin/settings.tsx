@@ -99,9 +99,33 @@ function TargetToggle({ t }: { t: AdminSettings["targets"][number] }) {
   );
 }
 
+function PasswordSettings() {
+  const { run, pending } = useAdminAction();
+  const [values, setValues] = useState({ currentPassword: "", newPassword: "", confirmPassword: "" });
+  return <Card title="修改管理员密码" className="mb-5">
+    <form className="grid max-w-xl gap-4" onSubmit={async (event) => {
+      event.preventDefault();
+      if (values.newPassword !== values.confirmPassword) return toast("两次新密码不一致", "error");
+      const result = await run("POST", "/api/admin/settings/password", values, { revalidate: false });
+      if (result !== null) {
+        setValues({ currentPassword: "", newPassword: "", confirmPassword: "" });
+        window.location.assign("/admin/login?return=%2Fadmin%2Fsettings&changed=1");
+      }
+    }}>
+      <p className="text-sm text-ink-3">新密码至少 12 位。保存后，所有通过密码登录的设备需要重新登录。</p>
+      {(["currentPassword", "newPassword", "confirmPassword"] as const).map((key, index) => <label key={key} className="grid gap-2 text-sm">
+        {["当前密码", "新密码", "确认新密码"][index]}
+        <Input type="password" required autoComplete={index === 0 ? "current-password" : "new-password"} minLength={index === 0 ? undefined : 12} maxLength={256} value={values[key]} onChange={(event) => setValues({ ...values, [key]: event.target.value })} />
+      </label>)}
+      <Button type="submit" tone="primary" busy={pending !== null}>保存新密码</Button>
+    </form>
+  </Card>;
+}
+
 export default function SettingsAdmin({ loaderData: s }: Route.ComponentProps) {
   return (
     <AdminPage title="设置" subtitle="不改代码即可替换的运营设置。每次修改都写入审计记录。">
+      <PasswordSettings />
       <div className="grid gap-5 xl:grid-cols-2">
         <Card title="关于页二维码">
           <div className="space-y-5">

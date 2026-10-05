@@ -1,9 +1,11 @@
 // Admin sign-in and the /api/admin guard. Public routes never read the session.
 import type { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { ZodError } from "zod";
+import { z, ZodError } from "zod";
 import type { AdminMe } from "@aihot/contracts/admin";
 import { config } from "@aihot/backend/config";
 import {
+  changeAdminPassword,
+  actorOf,
   completeLogin,
   cookie,
   endSession,
@@ -137,6 +139,21 @@ export function registerAdminAuth(app: FastifyInstance) {
     reply.header("Set-Cookie", cookie(SESSION_COOKIE, "", 0, secure())).header("Cache-Control", "no-store");
     return reply.redirect("/", 303);
   });
+
+  app.post("/api/admin/settings/password", adminHandler(async (req, reply, admin) => {
+    if (admin.dev) return sendProblem(req, reply, { status: 403, code: "forbidden", detail: "请使用真实管理员账号登录后修改密码" });
+    if (tooManyAttempts(String(req.ip))) return sendProblem(req, reply, { status: 429, code: "rate_limited", detail: "尝试次数太多，请 15 分钟后再试" });
+    const input = z.object({ currentPassword: z.string().max(256), newPassword: z.string().min(12).max(256), confirmPassword: z.string().max(256) }).parse(req.body);
+    if (input.newPassword !== input.confirmPassword) return sendProblem(req, reply, { status: 400, code: "invalid_request", detail: "两次新密码不一致" });
+    try {
+      await changeAdminPassword(input.currentPassword, input.newPassword, actorOf(admin));
+    } catch (error) {
+      if (!(error instanceof LoginRejected)) throw error;
+      return sendProblem(req, reply, { status: 400, code: "invalid_request", detail: error.message });
+    }
+    reply.header("Set-Cookie", cookie(SESSION_COOKIE, "", 0, secure()));
+    return { changed: true };
+  }));
 
   app.get("/api/admin/me", adminHandler(async (_req, _reply, admin): Promise<AdminMe> => ({ name: admin.name, csrf: admin.csrf, dev: admin.dev })));
 }

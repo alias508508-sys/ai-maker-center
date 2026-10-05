@@ -17,7 +17,7 @@ export async function loader({ request }: Route.LoaderArgs) {
   const url = new URL(request.url);
   const returnTo = url.searchParams.get("return") ?? "/admin";
   const options = await apiGet<{ password: boolean; feishu: boolean }>("/api/auth/options", { signal: request.signal }).catch(() => ({ password: true, feishu: false }));
-  return { returnTo: returnTo.startsWith("/admin") ? returnTo : "/admin", error: url.searchParams.get("error"), ...options };
+  return { returnTo: returnTo.startsWith("/admin") ? returnTo : "/admin", error: url.searchParams.get("error"), changed: url.searchParams.get("changed") === "1", ...options };
 }
 
 export const meta: Route.MetaFunction = () => [{ title: `登录 · ${SITE.name} 后台` }, { name: "robots", content: "noindex, nofollow" }];
@@ -25,8 +25,8 @@ export const meta: Route.MetaFunction = () => [{ title: `登录 · ${SITE.name} 
 export const headers: Route.HeadersFunction = () => ({ "Cache-Control": "no-store", "X-Robots-Tag": "noindex, nofollow" });
 
 export default function AdminLogin() {
-  const { returnTo, error, password, feishu } = useLoaderData<typeof loader>();
-  const message = error ? (ERRORS[error] ?? ERRORS.wrong) : !password ? ERRORS.unset : null;
+  const { returnTo, error, changed, password, feishu } = useLoaderData<typeof loader>();
+  const message = changed ? "密码已修改，请使用新密码登录。" : error ? (ERRORS[error] ?? ERRORS.wrong) : !password ? ERRORS.unset : null;
   return (
     <div className="flex min-h-dvh items-center justify-center bg-bg px-4">
       <div className="w-full max-w-[360px]">
@@ -49,7 +49,7 @@ export default function AdminLogin() {
             className="mt-2 h-10 w-full rounded-full border border-line-strong bg-surface px-4 text-[14px] text-ink outline-none transition-colors focus:border-accent"
           />
           {message && (
-            <p role="alert" className="mt-3 text-[12.5px] leading-relaxed text-hot">
+            <p role="alert" className={`mt-3 text-[12.5px] leading-relaxed ${changed ? "text-accent" : "text-hot"}`}>
               {message}
             </p>
           )}
