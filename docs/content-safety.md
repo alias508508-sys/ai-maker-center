@@ -26,8 +26,8 @@
 CONTENT_SAFETY_ACCESS_KEY_ID=专用RAM的AccessKeyID
 CONTENT_SAFETY_ACCESS_KEY_SECRET=专用RAM的AccessKeySecret
 CONTENT_SAFETY_ENDPOINT=green-cip.ap-southeast-1.aliyuncs.com
-CONTENT_SAFETY_TEXT_SERVICE=text_multilingual_pro_global
-CONTENT_SAFETY_IMAGE_SERVICE=postImageCheckByVL_global
+CONTENT_SAFETY_TEXT_SERVICE=ugc_moderation_byllm_cb
+CONTENT_SAFETY_IMAGE_SERVICE=postImageCheckByVL_cb
 CONTENT_SAFETY_ENABLED=false
 ```
 
@@ -35,7 +35,15 @@ CONTENT_SAFETY_ENABLED=false
 5. 保留现有站点的加密备份；以 `CONTENT_SAFETY_ENABLED=true` 在隔离副本运行存量审核、归档过滤及静态页面生成。所有公开图片/原创页面/历史归档都应检查，不把未审核文件留在可访问的静态目录。成功后再将已审核的副本替换上线。
 6. 服务确认工作后，将 `.env` 中 `CONTENT_SAFETY_ENABLED=true`，重建 api/web/worker 环境，启用 `maker-moderate.timer`。采集任务在封面生成后、归档与页面生成前执行 `maker-moderate.ts`。
 
-**当前默认关闭**：专业审核凭证还没有配置，因此没有对真实内容声称“审核通过”。后台显示“待启用”。默认设置不会让现有网站突然全部变空。启用前必须完成上述真实服务验证和存量审核。
+**初次配置时保持关闭**：凭证配置完成不代表已经启用审核。必须完成上述真实服务验证和隔离存量审核后，再开启生产开关。实时启用状态以后台设置页为准。
+
+以上服务名称对应阿里云中国站账户在新加坡控制台中的出海版；国际站账户的服务名称可能不同，以实际控制台和成功调用结果为准。2026-10-05 已完成正常文字、实际 WebP 图片通过和威胁文字拦截的真实接口测试，生产启用状态仍需以后台实时状态为准。
+
+## 费用
+
+中国站出海版当前公开按量价格：`ugc_moderation_byllm_cb` 为 20 元/万次，`postImageCheckByVL_cb` 为 45 元/万次。全文按 600 字分段、40 字重叠审核，摘要和生成文本也会审核；一篇文章不等于一次调用。相同内容通过私有哈希缓存避免重复审核，低中风险复查会增加调用。审核费与 DeepSeek 编辑费用分别计费。账户余额和优惠以费用中心为准，不承诺免费额度。
+
+计费来源：https://help.aliyun.com/zh/document_detail/477720.html
 
 ## 后续维护
 

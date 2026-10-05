@@ -59,7 +59,31 @@ try {
     writeFileSync("pages-preview/data.json.tmp", JSON.stringify(data, null, 2));
     renameSync("pages-preview/data.json.tmp", "pages-preview/data.json");
     for (const snapshot of snapshots) writeFileSync(snapshot.file, JSON.stringify({ ...snapshot.data, items: filterSafeItems(snapshot.data.items ?? []) }, null, 2));
-    const allowedAssets = new Set<string>(filterSafeItems(allItems).flatMap(itemAssets));
+    const archiveIndex = "pages-preview/archive/index.json";
+    if (existsSync(archiveIndex)) {
+      const index = JSON.parse(readFileSync(archiveIndex, "utf8"));
+      for (const entry of index) {
+        const snapshot = snapshots.find(s => s.file === "pages-preview/archive/" + entry.file);
+        if (snapshot) entry.count = filterSafeItems(snapshot.data.items ?? []).length;
+      }
+      writeFileSync(archiveIndex, JSON.stringify(index, null, 2));
+    }
+    const approvedItems = filterSafeItems(allItems);
+    // Downloadable rankings must not retain rejected text or unreviewed recommendation prose.
+    if (existsSync("pages-preview/rankings")) for (const name of readdirSync("pages-preview/rankings")) {
+      if (!/^(latest|\d{4}-\d{2}-\d{2})\.json$/.test(name)) continue;
+      const file = "pages-preview/rankings/" + name;
+      const backup = ".data/safety-quarantine/rankings/" + name;
+      mkdirSync(".data/safety-quarantine/rankings", { recursive: true });
+      if (!existsSync(backup)) copyFileSync(file, backup);
+      const ranking = JSON.parse(readFileSync(backup, "utf8"));
+      ranking.items = ranking.items.flatMap((entry: any) => {
+        const item = approvedItems.find(i => i.url === entry.url);
+        return item ? [{ ...item, rankingScore: entry.rankingScore, dimensions: entry.dimensions }] : [];
+      });
+      writeFileSync(file, JSON.stringify(ranking, null, 2));
+    }
+    const allowedAssets = new Set<string>(approvedItems.flatMap(itemAssets));
     const quarantine = ".data/safety-quarantine/assets/covers";
     mkdirSync(quarantine, { recursive: true });
     for (const asset of readdirSync("pages-preview/assets/covers")) {
