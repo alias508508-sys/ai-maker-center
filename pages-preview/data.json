@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-04T21:36:16.623Z",
-  "runs": 12,
+  "updatedAt": "2026-10-05T05:51:25.659Z",
+  "runs": 13,
   "seen": [
     "https://news.mit.edu/2026/instructmesh-tool-lets-users-repair-ai-3d-models-then-fabricate-them-1001",
     "https://news.mit.edu/2026/3-questions-new-resource-empower-young-entrepreneurs-1002",
@@ -60,14 +60,15 @@
     "https://www.ied.edu/projects/biblioteche-di-roma-designing-child-centered-libraries",
     "https://interactiondesign.zhdk.ch/news/",
     "https://dub.washington.edu/posts/2026/chi2026papers.html",
-    "https://fcai.fi/news/2026/4/29/faster-ai-systems-that-are-also-privacy-preservingaward-for-research-on-optimizing-privacy-in-deep-learning"
+    "https://fcai.fi/news/2026/4/29/faster-ai-systems-that-are-also-privacy-preservingaward-for-research-on-optimizing-privacy-in-deep-learning",
+    "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1kS0NMQ3BxR2hjejJ3NVZ3ajhNbmE4enp3elRmejJ5eUJWQjBLM0hvMC16T3dfVXZXMU83bjVGRWo2WlVha0xBaFBqWlBMVFRpOEFUbzB2VDh6akRCUlE?oc=5",
+    "https://news.google.com/rss/articles/CBMimgFBVV95cUxNWkthME51WDl1ckx3NWhWeHIwNE90UGs2ck5XTXNjQUROSXBEbXFTVG0xOHhBeThEeUtDR3A0czJnZ1Z3QnF4MjVjczV1M2hfVWNERVRjX1lnaWVuWmZHcTdoWG11TWNHcGNYcXd4TFoyY3pXd2s4YUhhRnlZajdLMl96dVEzYzNqTVVDVWxQTGxISkhjRm1PZUpn?oc=5",
+    "https://www.media.mit.edu/projects/hexsense/overview/",
+    "https://www.ied.edu/projects/occhio-specchio",
+    "https://interactiondesign.zhdk.ch/news/semesterstart-2026/",
+    "https://fcai.fi/news/2026/2/2/better-ai-models-by-incorporating-user-feedback-into-training"
   ],
   "sources": [
-    {
-      "name": "主题检索 · AI 创客与教育硬件",
-      "count": 14,
-      "status": "ok"
-    },
     {
       "name": "主题检索 · AI 机器人",
       "count": 100,
@@ -75,7 +76,7 @@
     },
     {
       "name": "主题检索 · AI 眼镜与可穿戴",
-      "count": 33,
+      "count": 32,
       "status": "ok"
     },
     {
@@ -85,17 +86,17 @@
     },
     {
       "name": "主题检索 · 教育实践",
-      "count": 13,
+      "count": 10,
       "status": "ok"
     },
     {
       "name": "主题检索 · 创新案例",
-      "count": 37,
+      "count": 38,
       "status": "ok"
     },
     {
       "name": "主题检索 · Kickstarter 设计项目报道",
-      "count": 6,
+      "count": 7,
       "status": "ok"
     },
     {
@@ -110,7 +111,7 @@
     },
     {
       "name": "高校学生 · AI硬件与可穿戴创新",
-      "count": 17,
+      "count": 18,
       "status": "ok"
     },
     {
@@ -200,8 +201,8 @@
     },
     {
       "name": "Morphing Matter Lab",
-      "count": 17,
-      "status": "ok"
+      "count": 0,
+      "status": "unavailable"
     },
     {
       "name": "Stanford d.school Stories",
@@ -240,8 +241,8 @@
     },
     {
       "name": "HCII News & Events",
-      "count": 17,
-      "status": "ok"
+      "count": 0,
+      "status": "unavailable"
     },
     {
       "name": "Fluid Interfaces",
@@ -265,7 +266,7 @@
     },
     {
       "name": "高校学生 · 交互设计与AI工具",
-      "count": 1,
+      "count": 0,
       "status": "ok"
     },
     {
@@ -355,11 +356,87 @@
     },
     {
       "name": "主题检索 · AI 家居设备",
-      "count": 35,
+      "count": 34,
+      "status": "ok"
+    },
+    {
+      "name": "主题检索 · AI 创客与教育硬件",
+      "count": 10,
       "status": "ok"
     }
   ],
   "items": [
+    {
+      "url": "https://fcai.fi/news/2026/2/2/better-ai-models-by-incorporating-user-feedback-into-training",
+      "title": "FCAI 研究：用交互式可视化工具将 RLHF 微调效果提升 60%",
+      "summary": "芬兰 Aalto 大学与 FCAI 等机构的研究显示，在 RLHF 训练中引入交互式可视化工具，让用户探索并比较机器人模拟动作，模型输出表现最高提升 60%，训练也更快。该工具让用户不再局限于一次两项的并排比较，可查看全部候选行为并给出更丰富的反馈，相关开源代码已随论文发布在 Computer Graphics Forum。",
+      "category": "paper",
+      "sourceName": "Aalto · FCAI 芬兰人工智能中心",
+      "score": 38,
+      "reason": "",
+      "origin": "model",
+      "tags": [],
+      "cover": "assets/covers/9eeec6d09937a4b9.webp",
+      "coverSource": "http://static1.squarespace.com/static/5d429cc990aa3d000191d3e3/5e53a8378ff9f5167fcb8fdb/69808f371c4b703bc3b10be6/1770034931082/RLHF-visualizer.png?format=1500w",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
+    },
+    {
+      "url": "https://www.ied.edu/projects/occhio-specchio",
+      "title": "Occhio Specchio：用镜子揭示隐藏图形的儿童教育游戏",
+      "summary": "Valeria Robbe 在 Lisciani Giochi 合作的教育游戏课程中设计了 Occhio Specchio，一款面向 8 岁及以上儿童的游戏，玩家通过移动和摆放小镜子在城市景观插图中发现并重构隐藏图形。游戏设五级难度，从具象元素递进到几何形状与抽象图案，并配有可自定义卡片，支持单人游玩或组队对战。",
+      "category": "tip",
+      "tags": [],
+      "reason": "",
+      "sourceName": "IED · IED Projects 学生项目",
+      "score": 18,
+      "origin": "model",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
+    },
+    {
+      "url": "https://www.media.mit.edu/projects/hexsense/overview/",
+      "title": "MIT Media Lab 的 HexSense 传感器节点在北极 Svalbard 完成部署",
+      "summary": "MIT Media Lab 的 HexSense 传感器节点于 7 月被部署到北极 Svalbard 地区，搭载光谱颜色传感器、温度传感器和湿度传感器。该节点采用模块化设计，可携带不同传感器载荷，弹道式投放落地后能自动立起并使机身离地，以保证无线连接的视线通畅。",
+      "category": "hardware",
+      "sourceName": "Responsive Environments",
+      "score": 20,
+      "reason": "",
+      "origin": "model",
+      "tags": [],
+      "cover": "assets/covers/9262297fed0e4043.webp",
+      "coverSource": "https://dam-prod.media.mit.edu/thumb/2023/07/25/hexsense_1.JPG.1400x1400.jpg",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNWkthME51WDl1ckx3NWhWeHIwNE90UGs2ck5XTXNjQUROSXBEbXFTVG0xOHhBeThEeUtDR3A0czJnZ1Z3QnF4MjVjczV1M2hfVWNERVRjX1lnaWVuWmZHcTdoWG11TWNHcGNYcXd4TFoyY3pXd2s4YUhhRnlZajdLMl96dVEzYzNqTVVDVWxQTGxISkhjRm1PZUpn?oc=5",
+      "title": "斯坦福研究生结合患者经历开发医疗设备",
+      "summary": "斯坦福大学一名研究生结合自身患者经历，开发医疗设备。",
+      "category": "hardware",
+      "tags": [],
+      "reason": "",
+      "sourceName": "高校学生 · AI硬件与可穿戴创新",
+      "score": 18,
+      "origin": "model",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1kS0NMQ3BxR2hjejJ3NVZ3ajhNbmE4enp3elRmejJ5eUJWQjBLM0hvMC16T3dfVXZXMU83bjVGRWo2WlVha0xBaFBqWlBMVFRpOEFUbzB2VDh6akRCUlE?oc=5",
+      "title": "2026世界设计之都大会在沪开幕，共筑全球设计“品智”未来",
+      "summary": "2026世界设计之都大会在上海开幕，主题聚焦全球设计的“品智”未来。大会汇聚各方共筑设计领域的交流与合作平台。",
+      "category": "industry",
+      "tags": [],
+      "reason": "",
+      "sourceName": "主题检索 · 创新案例",
+      "score": 15,
+      "origin": "model",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
+    },
     {
       "url": "https://dub.washington.edu/posts/2026/chi2026papers.html",
       "title": "华盛顿大学 DUB 在 CHI 2026 发表 68 篇论文，4 篇获最佳论文奖",
@@ -1084,7 +1161,12 @@
       "sourceName": "ETH Zürich · ethz-asl",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/269b00d79e5f8dae.webp",
+      "coverSource": "https://opengraph.githubassets.com/3d4825ed41ca282628ca35f58cec4a1990b3d588fb6f879c91db6b60454226fd/ethz-asl/versavis",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://github.com/ethz-asl/wavemap",
@@ -1094,7 +1176,12 @@
       "sourceName": "ETH Zürich · ethz-asl",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/fa286b20f3718f0f.webp",
+      "coverSource": "https://private-user-images.githubusercontent.com/6238939/279925043-e432d4ea-440d-4e9d-adf9-af3ae3b09a10.jpg?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3OTExNzk4MDYsIm5iZiI6MTc5MTE3OTUwNiwicGF0aCI6Ii82MjM4OTM5LzI3OTkyNTA0My1lNDMyZDRlYS00NDBkLTRlOWQtYWRmOS1hZjNhZTNiMDlhMTAuanBnP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI2MTAwNSUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjEwMDVUMDU1MTQ2WiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9YTRkMWFiNWQyODkwMjQ5MzMwMGY3OTkzZGZlYTVmNzcwYTg5ZmI1MTI0M2IzMzQ0NmEyODliOGI4ZWRmZmIyZCZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QmcmVzcG9uc2UtY29udGVudC10eXBlPWltYWdlJTJGanBlZyJ9.XtnFc0jPIZOhjkwNyFs4wYf7LL-N6T-RG7i4rWmN2AE",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://github.com/makeabilitylab/arduino",
@@ -1104,7 +1191,12 @@
       "sourceName": "University of Washington · makeabilitylab",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/819a2c3d18256409.webp",
+      "coverSource": "https://opengraph.githubassets.com/1b95c522fcaa941163054f1ea6b078ffdb29a1b49f93c2f9b424e0a2115bf72a/makeabilitylab/arduino",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://www.aalto.fi/en/news/training-available-in-ai-research-data-management-research-ethics-more-register-now",
@@ -1114,7 +1206,12 @@
       "sourceName": "Aalto Media Lab Projects",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/61eab9cb26ac6f72.webp",
+      "coverSource": "https://www.aalto.fi/sites/default/files/styles/1_91_1200w_630h_n/public/2026-01/RDM_kuvitus_2026-web.png?h=d1cb525d&itok=_nhfoaxx",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://www.tudelft.nl/en/2026/ide/september/ide-students-win-dutch-james-dyson-awards-2026",
@@ -1124,7 +1221,12 @@
       "sourceName": "TU Delft IDE Portal",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/a41e443c2aa0b212.webp",
+      "coverSource": "https://t.e7096c671.entry.domains/qE3z4tbFj8wLwXT5J-HFbkY-D1g=/2364x2364/filters:strip_exif()/https%3A%2F%2Ffilelist.tudelft.nl%2FIO%2FActueel%2FNieuwsberichten%2F2026%2F38%2520-%25202026%2FJames%2520Dyson%2520Award%25202026_Square.jpg%3Fhash%3D9a7659a574",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://www.tudelft.nl/en/2026/ide/september/tu-delft-launches-new-bachelor-programme-in-health-and-technology",
@@ -1134,7 +1236,12 @@
       "sourceName": "TU Delft IDE Portal",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/864539cea7981036.webp",
+      "coverSource": "https://t.e7096c671.entry.domains/MpWmON7dXcf4Qwf3fhA1ZaZK78Y=/fit-in/640x427/filters:strip_exif()/https%3A%2F%2Ffilelist.tudelft.nl%2FIO%2FActueel%2FNieuwsberichten%2F2026%2F40%2520-%25202026%2FHT1-28_Three%2520students%2520walking%2520in%2520front%2520of%2520Erasmus%2520MC%2520building_NI.jpg%3Fhash%3D9df9077546",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://royaldanishacademy.com/en/news/danish-climate-platform-receives-dkk-12-million-research-project-royal-danish-academy",
@@ -1144,7 +1251,12 @@
       "sourceName": "Royal Danish Academy · Graduation Bank 毕业作品库",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/fb59c9505444fb56.webp",
+      "coverSource": "https://royaldanishacademy.com/sites/default/files/styles/share/public/2026-10/img_7549.jpg?itok=BejbWoGa",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://peopletech.gatech.edu/students/foley-scholar-awards",
@@ -1154,7 +1266,12 @@
       "sourceName": "Georgia Tech · MS-HCI / School of Industrial Design / GVU",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/0115a784515e6cdf.webp",
+      "coverSource": "https://peopletech.gatech.edu/sites/default/files/Foley-Winners-2025.jpg",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://github.com/tudelft/AE4353-Y26",
@@ -1164,7 +1281,9 @@
       "sourceName": "TU Delft · tudelft",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://github.com/tudelft/Bee-Nav",
@@ -1174,7 +1293,9 @@
       "sourceName": "TU Delft · tudelft",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://github.com/tudelft/indiflight",
@@ -1184,7 +1305,12 @@
       "sourceName": "TU Delft · tudelft",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/c5066f2aae855ff0.webp",
+      "coverSource": "https://opengraph.githubassets.com/758c6bd70b892d41616b4468e6cb2eb69fd3f1b92bb631f30cc862b6e71c5c2f/tudelft/indiflight",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://www.domusacademy.com/projects/fashion-translator/",
@@ -1194,7 +1320,12 @@
       "sourceName": "Domus Academy · Projects 学生项目库",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/ddbcfb0e36d9e85a.webp",
+      "coverSource": "https://www.domusacademy.com/wp-content/uploads/2022/10/TerraVista_843-x-615_.jpg",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://www.aho.no/english/student-projects/design/2026/design-for-lering/index.html",
@@ -1204,7 +1335,12 @@
       "sourceName": "AHO · Studentprosjekter（挪威语，条目更全）",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/f550de5e3c138bc5.webp",
+      "coverSource": "https://www.aho.no/english/student-projects/design/2026/design-for-lering/design-for-lering-hovedbilde.jpg",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://github.com/hfg-gmuend/zoomaker",
@@ -1214,7 +1350,12 @@
       "sourceName": "HfG Schwäbisch Gmünd · hfg-gmuend",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/e47da5cc5a081c0b.webp",
+      "coverSource": "https://repository-images.githubusercontent.com/632399721/7afad831-eb81-49cd-b64a-45420cce7c72",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://www.lboro.ac.uk/media-centre/press-releases/2026/september/gargi-agrawalla-uk-winner-james-dyson-award-2026",
@@ -1224,7 +1365,12 @@
       "sourceName": "Loughborough · School of Design and Creative Arts",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/5073b661271230ff.webp",
+      "coverSource": "https://www.lboro.ac.uk/media/media/media-centre/images/press-releases/2026/gargi-resized.jpg",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://www.lboro.ac.uk/schools/design-creative-arts/whats-happening/news/2026/inclusivesportsdesigncompetition2025-26/",
@@ -1234,7 +1380,12 @@
       "sourceName": "Loughborough · School of Design and Creative Arts",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/c07b07c92617c23b.webp",
+      "coverSource": "https://www.lboro.ac.uk/media/media/schoolanddepartments/design-and-creative-arts/ISD%20Competition%20Main%20Image.jpg",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://dschool.stanford.edu/stories/gloria-chua-translating-ambiguity-into-trust",
@@ -1244,7 +1395,12 @@
       "sourceName": "Stanford d.school Stories",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/51ee6968cc5bfa13.webp",
+      "coverSource": "https://dschool.sfo3.digitaloceanspaces.com/transforms/_1200x630_crop_center-center_82_none/preview-image.png?mtime=1741186817",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://www.morphingmatter.cs.cmu.edu/projects/thermorph",
@@ -1254,7 +1410,12 @@
       "sourceName": "Morphing Matter Lab",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/256982807b429940.webp",
+      "coverSource": "http://static1.squarespace.com/static/5fc1dbf8116eb00e3c52b568/5fc1dde2f81c9a2a0ce5f828/5fc1dde2f81c9a2a0ce5f89e/1645918833655/01.jpg?format=1500w",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://www.morphingmatter.cs.cmu.edu/projects/morphing-pasta-and-beyond",
@@ -1264,7 +1425,12 @@
       "sourceName": "Morphing Matter Lab",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/1e3b8b004e81249e.webp",
+      "coverSource": "http://static1.squarespace.com/static/5fc1dbf8116eb00e3c52b568/5fc1dde2f81c9a2a0ce5f828/60920f7f820f902410bf8bd6/1731171372003/morphing_pasta-31.jpg?format=1500w",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://www.morphingmatter.cs.cmu.edu/projects/seed",
@@ -1274,7 +1440,12 @@
       "sourceName": "Morphing Matter Lab",
       "score": null,
       "reason": "",
-      "origin": "model"
+      "origin": "model",
+      "cover": "assets/covers/ec3e29e792543b0c.webp",
+      "coverSource": "http://static1.squarespace.com/static/5fc1dbf8116eb00e3c52b568/5fc1dde2f81c9a2a0ce5f828/63ddc08ae42aa6427b9e8cb8/1773340105733/E-seed_thumbnail_800_by_800.jpg?format=1500w",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
     },
     {
       "url": "https://www.media.mit.edu/projects/aha-seminar-series/overview/",
@@ -1557,16 +1728,6 @@
       "origin": "model"
     },
     {
-      "url": "https://fcai.fi/news/2026/2/2/better-ai-models-by-incorporating-user-feedback-into-training",
-      "title": "交互式可视化工具改进RLHF训练，AI模型性能提升60%",
-      "summary": "该研究由阿尔托大学、特伦托大学和KTH皇家理工学院团队完成，提出一种交互式可视化工具，让用户在AI模型训练过程中通过可视化仪表盘提供反馈，突破传统RLHF中仅能两两比较的限制。用户可探索已做比较、查看建议的新比较并访问全部模拟动作目录。在简单机器人模拟中，受试者训练出的骨骼模型性能比仅用并排比较提升高达60%，且反馈更具信息量、训练更高效。研究发表于Computer Graphics Forum，并开源了改进RLHF的代码。",
-      "category": "ai-products",
-      "sourceName": "Aalto · FCAI 芬兰人工智能中心",
-      "score": null,
-      "reason": "",
-      "origin": "model"
-    },
-    {
       "url": "https://fcai.fi/news/2026/4/29/faster-ai-systems-that-are-also-privacy-preservingaward-for-research-on-optimizing-privacy-in-deep-learning",
       "title": "赫尔辛基大学研究团队优化深度学习差分隐私训练，获IEEE SaTML 2026最佳论文奖",
       "summary": "赫尔辛基大学Antti Honkela团队与NVIDIA合作，分析了差分隐私下深度学习模型训练的计算成本，提出一种高效可扩展的差分隐私深度学习实现方法，在计算机视觉模型上实现更快、更省内存的训练，速度可达Opacus等标准库基线的两倍，并获IEEE安全与可信机器学习会议2026年最佳论文奖。下一步将应对大语言模型训练中的隐私保护挑战。",
@@ -1592,16 +1753,6 @@
       "summary": "瑞典查尔姆斯理工大学等机构的研究人员将大语言模型、自动推理与实验室自动化结合，构建了闭环AI实验室，能针对酿酒酵母自主提出生物学问题、推荐实验、评估结果并迭代理解，在极少人工干预下生成新科学知识。研究者将其类比为自动驾驶，认为自主实验室将加速生物学、医学和生物技术发现，目前定位为增强而非取代人类科学家。",
       "category": "industry",
       "sourceName": "Chalmers · Industrial Design Engineering",
-      "score": null,
-      "reason": "",
-      "origin": "model"
-    },
-    {
-      "url": "https://www.media.mit.edu/projects/hexsense/overview/",
-      "title": "HexSense：可弹射部署的模块化传感器节点",
-      "summary": "HexSense 是 MIT Media Lab 研发的一种可弹射部署到目标区域的传感器节点，采用模块化设计，可搭载不同传感器载荷。落地后节点能自动立起，使主体离地以保证无线连接的良好视线。2024 年 7 月，一个 HexSense 节点被部署到北极斯瓦尔巴地区，搭载光谱颜色传感器、温度传感器和湿度传感器等多种环境传感器，旨在帮助人们从难以到达但可能蕴含有趣数据的区域采集数据。",
-      "category": "hardware",
-      "sourceName": "Responsive Environments",
       "score": null,
       "reason": "",
       "origin": "model"

@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-10-05T05:51:25.659Z",
+  "date": "2026-10-05",
+  "timezone": "Asia/Shanghai",
+  "kind": "published-batch",
+  "items": [
+    {
+      "url": "https://fcai.fi/news/2026/2/2/better-ai-models-by-incorporating-user-feedback-into-training",
+      "title": "FCAI 研究：用交互式可视化工具将 RLHF 微调效果提升 60%",
+      "summary": "芬兰 Aalto 大学与 FCAI 等机构的研究显示，在 RLHF 训练中引入交互式可视化工具，让用户探索并比较机器人模拟动作，模型输出表现最高提升 60%，训练也更快。该工具让用户不再局限于一次两项的并排比较，可查看全部候选行为并给出更丰富的反馈，相关开源代码已随论文发布在 Computer Graphics Forum。",
+      "category": "paper",
+      "sourceName": "Aalto · FCAI 芬兰人工智能中心",
+      "score": 38,
+      "reason": "",
+      "origin": "model",
+      "tags": [],
+      "cover": "assets/covers/9eeec6d09937a4b9.webp",
+      "coverSource": "http://static1.squarespace.com/static/5d429cc990aa3d000191d3e3/5e53a8378ff9f5167fcb8fdb/69808f371c4b703bc3b10be6/1770034931082/RLHF-visualizer.png?format=1500w",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
+    },
+    {
+      "url": "https://www.ied.edu/projects/occhio-specchio",
+      "title": "Occhio Specchio：用镜子揭示隐藏图形的儿童教育游戏",
+      "summary": "Valeria Robbe 在 Lisciani Giochi 合作的教育游戏课程中设计了 Occhio Specchio，一款面向 8 岁及以上儿童的游戏，玩家通过移动和摆放小镜子在城市景观插图中发现并重构隐藏图形。游戏设五级难度，从具象元素递进到几何形状与抽象图案，并配有可自定义卡片，支持单人游玩或组队对战。",
+      "category": "tip",
+      "tags": [],
+      "reason": "",
+      "sourceName": "IED · IED Projects 学生项目",
+      "score": 18,
+      "origin": "model",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
+    },
+    {
+      "url": "https://www.media.mit.edu/projects/hexsense/overview/",
+      "title": "MIT Media Lab 的 HexSense 传感器节点在北极 Svalbard 完成部署",
+      "summary": "MIT Media Lab 的 HexSense 传感器节点于 7 月被部署到北极 Svalbard 地区，搭载光谱颜色传感器、温度传感器和湿度传感器。该节点采用模块化设计，可携带不同传感器载荷，弹道式投放落地后能自动立起并使机身离地，以保证无线连接的视线通畅。",
+      "category": "hardware",
+      "sourceName": "Responsive Environments",
+      "score": 20,
+      "reason": "",
+      "origin": "model",
+      "tags": [],
+      "cover": "assets/covers/9262297fed0e4043.webp",
+      "coverSource": "https://dam-prod.media.mit.edu/thumb/2023/07/25/hexsense_1.JPG.1400x1400.jpg",
+      "coverMethod": "original-image",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNWkthME51WDl1ckx3NWhWeHIwNE90UGs2ck5XTXNjQUROSXBEbXFTVG0xOHhBeThEeUtDR3A0czJnZ1Z3QnF4MjVjczV1M2hfVWNERVRjX1lnaWVuWmZHcTdoWG11TWNHcGNYcXd4TFoyY3pXd2s4YUhhRnlZajdLMl96dVEzYzNqTVVDVWxQTGxISkhjRm1PZUpn?oc=5",
+      "title": "斯坦福研究生结合患者经历开发医疗设备",
+      "summary": "斯坦福大学一名研究生结合自身患者经历，开发医疗设备。",
+      "category": "hardware",
+      "tags": [],
+      "reason": "",
+      "sourceName": "高校学生 · AI硬件与可穿戴创新",
+      "score": 18,
+      "origin": "model",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
+    },
+    {
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1kS0NMQ3BxR2hjejJ3NVZ3ajhNbmE4enp3elRmejJ5eUJWQjBLM0hvMC16T3dfVXZXMU83bjVGRWo2WlVha0xBaFBqWlBMVFRpOEFUbzB2VDh6akRCUlE?oc=5",
+      "title": "2026世界设计之都大会在沪开幕，共筑全球设计“品智”未来",
+      "summary": "2026世界设计之都大会在上海开幕，主题聚焦全球设计的“品智”未来。大会汇聚各方共筑设计领域的交流与合作平台。",
+      "category": "industry",
+      "tags": [],
+      "reason": "",
+      "sourceName": "主题检索 · 创新案例",
+      "score": 15,
+      "origin": "model",
+      "coverChecked": true,
+      "coverCheckedVersion": 2
+    }
+  ]
+}
