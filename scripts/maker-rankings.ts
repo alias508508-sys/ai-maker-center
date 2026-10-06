@@ -1,6 +1,6 @@
 // 定时任务评估已经通过公开读取层导出的资讯；访问首页不触发模型。
 import { filterSafeItems } from "./maker-safety.ts";
-import { readFileSync, writeFileSync, mkdirSync, existsSync, renameSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, renameSync, readdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { z } from 'zod';
 import { chatJson, markReceiptsCompleted, ModelOutputError } from '@aihot/backend/providers/llm';
@@ -45,6 +45,16 @@ try {
     console.log(`已评估 ${Math.min(n+10,pending.length)}/${pending.length} 条有图资讯`);
   }
   const ranked=selectRankings(candidates,candidates.map(i=>cache[key(i)]!),hasImage);
+  // 新内容不足时按此前榜单顺序补位，只复用已审核、有图的推荐。
+  const previousFiles=[...(existsSync(latestPath)?['latest.json']:[]),...readdirSync('pages-preview/rankings').filter(name=>/^\d{4}-\d{2}-\d{2}\.json$/.test(name)&&name.slice(0,10)<date).sort().reverse()];
+  for(const name of previousFiles) {
+    const previous=JSON.parse(readFileSync('pages-preview/rankings/'+name,'utf8'));
+    for(const item of filterSafeItems<RankedItem>(previous.items).filter(hasImage)) {
+      if(ranked.length>=8)break;
+      if(!ranked.some(i=>i.url===item.url))ranked.push(item as typeof ranked[number]);
+    }
+    if(ranked.length>=8)break;
+  }
   const output={date,generatedAt:new Date().toISOString(),sourceUpdatedAt:data.updatedAt,criteriaVersion:version,candidateCount:candidates.length,items:ranked};
   atomic(`pages-preview/rankings/${date}.json`,output);
   atomic('pages-preview/rankings/latest.json',output);
