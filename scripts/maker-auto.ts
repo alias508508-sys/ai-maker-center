@@ -19,6 +19,7 @@ import { publishArticle } from '@aihot/backend/publication/publish';
 import { v1Items } from '@aihot/backend/publication/v1';
 import { stopBoss } from '@aihot/backend/jobs/queue';
 import { submittedCandidate, saveBookmark, linkUrl } from './maker-links.ts';
+import { prepareDiscovery } from './maker-discovery.ts';
 import { BudgetExceededError } from '@aihot/backend/providers/receipts';
 const path = 'pages-preview/data.json';
 const old = JSON.parse(readFileSync(path, 'utf8'));
@@ -29,7 +30,12 @@ const seenKeys = new Set<string>([...completed.map(a => a.identity_key), ...[...
 const alreadyHandled = (url: string) => seenKeys.has(identityKeyForUrl(url) ?? url);
 const inputUrl = process.env.MAKER_ARTICLE_URL?.trim();
 const submittedUrl = inputUrl ? linkUrl(inputUrl) : undefined;
-const sources = submittedUrl ? [] : await sql<SourceRow[]>`SELECT * FROM sources WHERE enabled AND kind IN ('rss','web_list','x_search') ORDER BY id`;
+if (!submittedUrl) {
+  try { await prepareDiscovery(); }
+  catch { console.log('AI 搜索计划暂不可用，继续使用已有信源'); }
+}
+let sources = submittedUrl ? [] : await sql<SourceRow[]>`SELECT * FROM sources WHERE enabled AND kind IN ('rss','web_list','x_search') ORDER BY id`;
+if (process.env.MAKER_TEST_DISCOVERY === 'true') sources = sources.filter(s => s.id.startsWith('maker-discovery-'));
 // GitHub's temporary database gets a per-batch ceiling; the server keeps administrator budgets.
 if (process.env.GITHUB_ACTIONS === 'true') await sql`UPDATE budgets SET per_minute=30, per_hour=30, per_day=30 WHERE service IN ('llm','deepseek')`;
 let processed = 0, fetched = 0;
@@ -63,7 +69,7 @@ if (process.env.MAKER_TEST_NEW_SOURCES === 'true') pools.sort((a,b) => Number(/h
 const batch = Array.from({length:8},(_,index) => pools.flatMap(p => p.candidates[index] ? [{source:p.source,candidate:p.candidates[index]!}] : [])).flat();
 for (const {source,candidate} of batch) {
 
-    if (processed >= 12) break;
+    if (processed >= (process.env.MAKER_TEST_DISCOVERY === 'true' ? 4 : 12)) break;
     if (alreadyHandled(candidate.url)) continue;
     let body = candidate.bodyText || candidate.excerpt;
     // 网页列表只提供标题与链接；读取原文后再交给模型，限制每批的详情请求。
