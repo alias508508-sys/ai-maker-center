@@ -8,6 +8,7 @@ import { sql, closeDb } from '@aihot/backend/db';
 import { fetchWebList } from '@aihot/backend/sources/web-list';
 import type { Candidate } from '@aihot/backend/sources/types';
 import { fetchRss } from '@aihot/backend/sources/rss';
+import { fetchXSearch } from '@aihot/backend/sources/x';
 import type { SourceRow } from '@aihot/backend/sources/types';
 import { upsertMaterial } from '@aihot/backend/content/materials';
 import { identityKeyForUrl } from '@aihot/backend/lib/url';
@@ -28,7 +29,7 @@ const seenKeys = new Set<string>([...completed.map(a => a.identity_key), ...[...
 const alreadyHandled = (url: string) => seenKeys.has(identityKeyForUrl(url) ?? url);
 const inputUrl = process.env.MAKER_ARTICLE_URL?.trim();
 const submittedUrl = inputUrl ? linkUrl(inputUrl) : undefined;
-const sources = submittedUrl ? [] : await sql<SourceRow[]>`SELECT * FROM sources WHERE enabled AND kind IN ('rss','web_list') ORDER BY id`;
+const sources = submittedUrl ? [] : await sql<SourceRow[]>`SELECT * FROM sources WHERE enabled AND kind IN ('rss','web_list','x_search') ORDER BY id`;
 // GitHub's temporary database gets a per-batch ceiling; the server keeps administrator budgets.
 if (process.env.GITHUB_ACTIONS === 'true') await sql`UPDATE budgets SET per_minute=30, per_hour=30, per_day=30 WHERE service IN ('llm','deepseek')`;
 let processed = 0, fetched = 0;
@@ -49,7 +50,8 @@ if (submittedUrl) {
 }
 for (const source of [...sources.slice(offset), ...sources.slice(0, offset)]) {
   try {
-    const candidates = source.kind === 'rss' ? (await fetchRss(source, { force: true })).candidates : await fetchWebList(source, { preview: true });
+    // X 每轮只读首批，历史去重后再分析；不推进游标，避免未处理的候选丢失。
+    const candidates = source.kind === 'rss' ? (await fetchRss(source, { force: true })).candidates : source.kind === 'x_search' ? (await fetchXSearch({...source, cursor: null})).candidates : await fetchWebList(source, { preview: true });
     fetched++;
     status.push({name: source.name, count: candidates.length, status: 'ok'});
     console.log(`${source.name}：抓取 ${candidates.length} 条`);
