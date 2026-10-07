@@ -33,6 +33,13 @@ export function rowToV1(row: ApiItemRow): V1ItemPayload {
   });
 }
 
+/** Explicit publication exports may include historical items, using the same public gate. */
+export async function v1ItemById(id: string, now = new Date()): Promise<V1ItemPayload | null> {
+  const [row] = await sql<ApiItemRow[]>`SELECT ${API_ITEM_COLUMNS} ${API_ITEM_FROM}
+    WHERE p.article_id=${id} AND ${listedCondition(now)}`;
+  return row ? rowToV1(row) : null;
+}
+
 export async function v1Items(query: V1ItemsQuery, now = new Date()): Promise<V1ItemsResult> {
   const windowMs = query.window === "24h" ? 86400000 : 7 * 86400000;
   const windowStart = new Date(now.getTime() - windowMs);

@@ -19,7 +19,7 @@ import { stopBoss } from "@aihot/backend/jobs/queue";
 import { publishArticle, republishSource } from "@aihot/backend/publication/publish";
 import { computeHotRanking } from "@aihot/backend/events/hot";
 import { latestHotRanking } from "@aihot/backend/publication/hot";
-import { effectiveWatermark } from "@aihot/backend/publication/v1";
+import { effectiveWatermark, v1ItemById } from "@aihot/backend/publication/v1";
 import { buildApp } from "../apps/api/src/app.ts";
 
 const T = tag();
@@ -523,4 +523,16 @@ test('event neighbors disappear when their last readable evidence is withdrawn o
     assert.equal((await get(`/api/v1/stories/${neighbor}`)).status, 404);
     for (const url of exits) assert.ok(!(await get(url)).body.includes(neighbor), `${url} must not advertise an unreadable neighbor`);
   }
+});
+
+
+test("explicit historical exports keep the public release and withdrawal gates", async () => {
+  const id=await article();
+  await sql`UPDATE articles SET published_at=now()-interval '30 days' WHERE id=${id}`;
+  await publishArticle(id);
+  assert.equal(await v1ItemById(id),null);
+  const later=new Date(Date.now()+181000);
+  assert.equal((await v1ItemById(id,later))?.id,id);
+  await sql`UPDATE publications SET visibility='withdrawn' WHERE article_id=${id}`;
+  assert.equal(await v1ItemById(id,later),null);
 });
