@@ -26,8 +26,13 @@ try {
   if(!await reviewArticleSafety(material.articleId))throw Error('Article safety pending');
   await publishArticle(material.articleId);
   await new Promise(resolve=>setTimeout(resolve,181000));
-  const result=await v1Items({mode:'all',window:'7d',by:'published',category:null,q:null,limit:100,cursor:null});
-  const published=result.items.find(i=>i.id===material.articleId);
+  let cursor: string | null = null;
+  let published;
+  do {
+    const result=await v1Items({mode:'all',window:'7d',by:'published',category:null,q:null,limit:100,cursor});
+    published=result.items.find(i=>i.id===material.articleId);
+    cursor=result.page.nextCursor;
+  } while(!published && cursor);
   if(!published)throw Error('Sample did not pass public publication rules');
   const data=JSON.parse(readFileSync('pages-preview/data.json','utf8'));
   const prior=data.items.find((i:{url:string})=>i.url===candidate.url);
